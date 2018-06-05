@@ -9,7 +9,6 @@ class Search extends Component {
   handleKeyPress = (e) => {
     if(e.key === 'Enter'){
       e.preventDefault()
-      // console.log(e);
       this.props.query(e.target.value)
       console.log('handled key press')
     }

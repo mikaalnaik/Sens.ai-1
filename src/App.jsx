@@ -14,33 +14,17 @@ class App extends Component {
     }
   }
 
-  componentDidMount(){
+  fetchPosts = async (query) => {
+    const response = await (await fetch(`/results/${query}`)).json()
+    return response;
+  }
 
-    this.callApi()
-      .then(res => {
-        this.setState({ response: res.express })
-        console.log(res);
-      })
-      .catch(err => console.log(err) );
-    }
-
-    callApi = async () => {
-      const response = await fetch('/api/hello');
-      // const body = await response.json();
-
-      // if (response.status !== 200) throw Error(body.message);
-      // console.log('yo')
-
-      // return body;
-    }
-
-
-  searchSubmission = query => {
-    this.setState({searchSubmit : true})
+  searchSubmission = async (query) => {
+    this.setState( { searchSubmit : true, currentQuery: query } )
+    let posts = await this.fetchPosts(query)
   }
 
   render() {
-
     return (
       <div>
         <div> <NavBar/> </div>
@@ -49,7 +33,6 @@ class App extends Component {
           <PieExample searched={this.state.searchSubmit}/>
         </div>
       </div>
-
     );
   }
 }
