@@ -98,6 +98,11 @@ class PieExample extends Component {
 		} else {
       return (
         <div className="Card">
+          <div className="buttonHolder">
+            <button className="button1">
+              <i class="far fa-arrow-alt-circle-down"></i>
+            </button>
+          </div>
           <Grid fluid>
             <Row>
               <Col xs={12} sm={12} md={12} lg={12}>

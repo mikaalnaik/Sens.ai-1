@@ -97,8 +97,21 @@ h3 {
 }
 
 .jumbo {
-  margin: 3em;
-  margin-top: 6em;
+  margin: 2.5em;
+  margin-top: 5em;
   text-align: center;
   font-size: 3em;
+}
+
+.button1 {
+  font-size: 2em;
+  border-radius: 8px;
+  background-color: #fbfbfd;
+  color: #8e99a7;
+  border: 1px solid #fbfbfd;
+  margin-bottom: 1em;
+}
+
+.buttonHolder {
+  text-align: center;
 }
