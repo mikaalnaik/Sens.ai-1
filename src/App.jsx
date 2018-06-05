@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import NavBar from  './navbar.js'
 import Search from './search.jsx'
 import PieExample from './OverallSentiments'
+import Jumbotron from './Jumbotron'
 
 import './App.css';
 
@@ -23,6 +24,7 @@ class App extends Component {
     return (
       <div>
         <div> <NavBar/> </div>
+        <div> <Jumbotron/> </div>
         <div> <Search query={this.searchSubmission}/> </div>
         <div className="pie">
           <PieExample searched={this.state.searchSubmit}/>

@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import {Pie} from 'react-chartjs-2';
-import {Line} from 'react-chartjs-2';
-import {Bar} from 'react-chartjs-2';
+import {Pie, Line, Bar, Polar} from 'react-chartjs-2';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 const dataBar = {
@@ -9,11 +7,11 @@ const dataBar = {
   datasets: [
     {
       label: 'My First dataset',
-      backgroundColor: '#28ed63',
-      borderColor: '#212922',
+      backgroundColor: '#9f488e',
+      borderColor: '#9f488e',
       borderWidth: 1,
-      hoverBackgroundColor: 'rgba(184, 237, 40,0.4)',
-      hoverBorderColor: 'rgba(184, 237, 40,1)',
+      hoverBackgroundColor: 'rgba(91, 130, 102,0.4)',
+      hoverBorderColor: 'rgba(91, 130, 102,1)',
       data: [65, 59, 80]
     }
   ]
@@ -62,6 +60,33 @@ const dataPie = {
 	}]
 };
 
+const dataPolar = {
+  datasets: [{
+    data: [
+      11,
+      16,
+      7,
+      3,
+      14
+    ],
+    backgroundColor: [
+      '#FF6384',
+      '#4BC0C0',
+      '#FFCE56',
+      '#E7E9ED',
+      '#36A2EB'
+    ],
+    label: 'My dataset' // for legend
+  }],
+  labels: [
+    'Red',
+    'Green',
+    'Yellow',
+    'Grey',
+    'Blue'
+  ]
+};
+
 class PieExample extends Component {
   constructor(props){
     super(props);
@@ -81,24 +106,34 @@ class PieExample extends Component {
             </Row>
 
             <Row>
-              <Col xs={12} sm={12} md={12} lg={4}>
+              <Col xs={12} sm={12} md={12} lg={6}>
                 <div className="singleChart">
                   <Pie data={dataPie}/>
                 </div>
               </Col>
 
-              <Col xs={12} sm={12} md={12} lg={4}>
+              <Col xs={12} sm={12} md={12} lg={6}>
                 <div className="singleChart">
                   <Line data={dataLine} />
                 </div>
               </Col>
+            </Row>
 
-              <Col xs={12} sm={12} md={12} lg={4}>
+            <Row>
+              <Col xs={12} sm={12} md={12} lg={6}>
                 <div className="singleChart">
-                  <Bar data={dataBar}/>
+                  <Bar data={dataBar} />
+                </div>
+              </Col>
+
+              <Col xs={12} sm={12} md={12} lg={6}>
+                <div className="singleChart">
+                  <Polar data={dataPolar} />
                 </div>
               </Col>
             </Row>
+
+
           </Grid>
         </div>
       );
