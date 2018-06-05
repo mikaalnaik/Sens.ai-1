@@ -102,9 +102,3 @@ h3 {
   text-align: center;
   font-size: 3em;
 }
-
-.jumbo:hover {
-  -webkit-transform: scale(1.3);
-  -ms-transform: scale(1.3);
-  transform: scale(1.3);
-}
