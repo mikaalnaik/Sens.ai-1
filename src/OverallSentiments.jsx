@@ -8,11 +8,11 @@ const dataBar = {
   datasets: [
     {
       label: 'My First dataset',
-      backgroundColor: '#a1a1a1',
-      borderColor: '#3e3e3e',
+      backgroundColor: '#28ed63',
+      borderColor: '#212922',
       borderWidth: 1,
-      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-      hoverBorderColor: 'rgba(255,99,132,1)',
+      hoverBackgroundColor: 'rgba(184, 237, 40,0.4)',
+      hoverBorderColor: 'rgba(184, 237, 40,1)',
       data: [65, 59, 80]
     }
   ]
@@ -24,17 +24,17 @@ const dataLine = {
       label: 'Emotional Response over time',
       fill: false,
       lineTension: 0.1,
-      backgroundColor: 'rgba(75,192,192,0.4)',
+      backgroundColor: 'rgba(227, 23, 10,0.4)',
       borderColor: '#3e3e3e',
       borderCapStyle: 'butt',
       borderDash: [],
       borderDashOffset: 0.0,
       borderJoinStyle: 'miter',
-      pointBorderColor: 'rgba(75,192,192,1)',
+      pointBorderColor: 'rgba(227, 23, 10,1)',
       pointBackgroundColor: '#fff',
       pointBorderWidth: 1,
       pointHoverRadius: 5,
-      pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+      pointHoverBackgroundColor: 'rgba(227, 23, 10,1)',
       pointHoverBorderColor: 'rgba(220,220,220,1)',
       pointHoverBorderWidth: 2,
       pointRadius: 1,
@@ -51,12 +51,12 @@ const dataPie = {
 	datasets: [{
 		data: [27,73],
 		backgroundColor: [
-      '#3e3e3e',
-  		'#a1a1a1'
+      '#274C77',
+  		'#F0803C'
 		],
 		hoverBackgroundColor: [
-		'#78909C',
-		'#B0BEC5'
+		'#6096BA',
+		'#F4A271'
 		]
 	}]
 };
@@ -73,7 +73,7 @@ class PieExample extends Component {
 
       return (
         <div className="Card">
-          <h4>Overall Emotional Sentiment for {this.props.querySearched}</h4>
+          <h3>Overall Emotional Sentiment {this.props.querySearched}</h3>
           <div className="flex-container">
             <div className="singleChart">
               <Pie data={dataPie}/>
@@ -82,14 +82,13 @@ class PieExample extends Component {
               <Line data={dataLine} />
             </div>
             <div className="singleChart">
-  				        <Bar data={dataBar}/>
-                </div>
-              </div>
+  				    <Bar data={dataBar}/>
             </div>
-          );
+          </div>
+        </div>
+      );
 	  }
   }
-
 }
 
 export default PieExample

@@ -87,9 +87,10 @@ input[type="submit"]:hover {
 
 }
 
-h4 {
+h3 {
   align-self: center;
   float: none;
+  text-align: center;
 }
 
 .pie {
