@@ -16,6 +16,7 @@
     "react-burger-menu": "^2.5.0",
     "react-chartjs-2": "^2.7.2",
     "react-dom": "^16.4.0",
+    "react-flexbox-grid": "^2.1.2",
     "react-scripts": "1.1.4",
     "twit": "^2.2.10",
     "watson-developer-cloud": "^3.4.5"

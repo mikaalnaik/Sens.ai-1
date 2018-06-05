@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Pie} from 'react-chartjs-2';
 import {Line} from 'react-chartjs-2';
 import {Bar} from 'react-chartjs-2';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 const dataBar = {
   labels: ['Reddit', 'Twitter', 'Facebook'],
@@ -70,21 +71,35 @@ class PieExample extends Component {
 		if(!this.props.searched){
 			return (<p></p>)
 		} else {
-
       return (
         <div className="Card">
-          <h3>Overall Emotional Sentiment {this.props.querySearched}</h3>
-          <div className="flex-container">
-            <div className="singleChart">
-              <Pie data={dataPie}/>
-            </div>
-            <div className="singleChart">
-              <Line data={dataLine} />
-            </div>
-            <div className="singleChart">
-  				    <Bar data={dataBar}/>
-            </div>
-          </div>
+          <Grid fluid>
+            <Row>
+              <Col xs={12} sm={12} md={12} lg={12}>
+                <h3>Overall Emotional Sentiment {this.props.querySearched}</h3>
+              </Col>
+            </Row>
+
+            <Row>
+              <Col xs={12} sm={12} md={12} lg={4}>
+                <div className="singleChart">
+                  <Pie data={dataPie}/>
+                </div>
+              </Col>
+
+              <Col xs={12} sm={12} md={12} lg={4}>
+                <div className="singleChart">
+                  <Line data={dataLine} />
+                </div>
+              </Col>
+
+              <Col xs={12} sm={12} md={12} lg={4}>
+                <div className="singleChart">
+                  <Bar data={dataBar}/>
+                </div>
+              </Col>
+            </Row>
+          </Grid>
         </div>
       );
 	  }
