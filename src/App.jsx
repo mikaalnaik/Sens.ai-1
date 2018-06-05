@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import NavBar from  './navbar.js'
 import Search from './search.jsx'
-import PieExample from './RedditFeed'
+import PieExample from './OverallSentiments'
 
 import './App.css';
 
@@ -12,6 +12,10 @@ class App extends Component {
     this.state = {
       searchSubmit : false,
     }
+  }
+
+  searchSubmission = query => {
+    this.setState({searchSubmit : true})
   }
 
   render() {

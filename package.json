@@ -5,6 +5,7 @@
   "dependencies": {
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
+    "chart.js": "^2.7.2",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "knex": "^0.14.6",
@@ -12,6 +13,7 @@
     "paralleldots": "^3.1.1",
     "pg": "^7.4.3",
     "react": "^16.4.0",
+    "react-burger-menu": "^2.5.0",
     "react-chartjs-2": "^2.7.2",
     "react-dom": "^16.4.0",
     "react-scripts": "1.1.4",
