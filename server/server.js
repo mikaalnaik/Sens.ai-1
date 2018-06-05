@@ -1,8 +1,9 @@
+require('dotenv').config()
+
 const fetch = require('node-fetch')
 const express = require("express");
 const bodyParser = require("body-parser");
 let Twit = require('twit');
-require('dotenv').config()
 
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
@@ -10,6 +11,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 const PORT = process.env.PORT || 3001;
 console.log(process.env.SECRETCONSUMERKEY);
 
+app.use(express.static('public'))
+.listen(PORT, '0.0.0.0', 'localhost', () => console.log(`Listening on ${ PORT }`));
 
 // Twitter API
 var T = new Twit({
@@ -49,7 +52,7 @@ console.log(mappedReddit);
       created_at: status.created_at
     }))
     // console.log(data);
-    console.log(JSO N.stringify({tweetdata}, null, 2))
+    console.log(JSON.stringify({tweetdata}, null, 2))
   })
 }
 
@@ -61,6 +64,3 @@ console.log(mappedReddit);
 })
 
   // Make the express server serve static assets (html, javascript, css) from the /public folder
-
-  app.use(express.static('public'))
-    .listen(PORT, '0.0.0.0', 'localhost', () => console.log(`Listening on ${ PORT }`));
