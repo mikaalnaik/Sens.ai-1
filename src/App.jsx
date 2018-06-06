@@ -6,10 +6,10 @@ import Jumbotron from './Jumbotron'
 
 import './App.css';
 
-var data = {
+let data = {
   overallHowManyWere: {
-    positive: 66,
-	negative: 33 },
+    positive: 25,
+	negative: 75 },
   specificHowManyWere:
    { dissapointed: 0,
      angry: 0,
@@ -23,14 +23,17 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      searchSubmit : false,
-      watsonData : data
+      searchSubmit: false,
+      statistics: data
     }
   }
 
   fetchPosts = async (query) => {
     const response = await (await fetch(`/results/${query}`)).json()
-    return response;
+    console.log(response)
+    this.setState( { statistics: response }, () => {
+      console.log("State: ", this.state.statistics) } )
+
   }
 
   searchSubmission = async (query) => {
@@ -47,7 +50,7 @@ class App extends Component {
         <div className="pie">
           <PieExample
             searched={this.state.searchSubmit}
-            chartData ={this.state.watsonData}
+            chartData ={this.state.statistics}
           />
         </div>
       </div>
