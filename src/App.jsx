@@ -9,13 +9,15 @@ import './App.css';
 var data = {
   overallHowManyWere: {
     positive: 66,
-	negative: 33 },
-  specificHowManyWere:
-   { dissapointed: 0,
-     angry: 0,
-     cautious: 33.33,
-     doubtful: 33.33,
-     happy: 33.33 }
+	  negative: 33
+  },
+  specificHowManyWere: {
+    dissapointed: 0,
+    angry: 0,
+    cautious: 33.33,
+    doubtful: 33.33,
+    happy: 33.33
+  }
 }
 
 class App extends Component {

@@ -113,44 +113,42 @@ class PieExample extends Component {
 			return (<p></p>)
 		} else {
       return (
-        <div className="Card">
-          <div className="buttonHolder">
-            <button className="button1">
-              <i class="far fa-arrow-alt-circle-down"></i>
-            </button>
+        <div>
+          <div className="Card">
+            <Grid fluid>
+              <Row>
+                <Col xs={12} sm={12} md={12} lg={12}>
+                  <h3>Overall Emotional Sentiment {this.props.querySearched}</h3>
+                </Col>
+              </Row>
+
+              <Row>
+                <Col xs={12} sm={12} md={12} lg={6}>
+                  <div className="singleChart">
+                    <Pie data={dataPie}/>
+                  </div>
+                </Col>
+
+                <Col xs={12} sm={12} md={12} lg={6}>
+                  <div className="singleChart">
+                    <Line data={dataLine} />
+                  </div>
+                </Col>
+              </Row>
+
+              <Row>
+                <Col xs={12} sm={12} md={12} lg={6}>
+                  <div className="singleChart">
+                    <Bar data={dataBar} />
+                  </div>
+                </Col>
+              </Row>
+
+
+            </Grid>
           </div>
-          <Grid fluid>
-            <Row>
-              <Col xs={12} sm={12} md={12} lg={12}>
-                <h3>Overall Emotional Sentiment {this.props.querySearched}</h3>
-              </Col>
-            </Row>
-
-            <Row>
-              <Col xs={12} sm={12} md={12} lg={6}>
-                <div className="singleChart">
-                  <Pie data={dataPie}/>
-                </div>
-              </Col>
-
-              <Col xs={12} sm={12} md={12} lg={6}>
-                <div className="singleChart">
-                  <Line data={dataLine} />
-                </div>
-              </Col>
-            </Row>
-
-            <Row>
-              <Col xs={12} sm={12} md={12} lg={6}>
-                <div className="singleChart">
-                  <Bar data={dataBar} />
-                </div>
-              </Col>
-            </Row>
-
-
-          </Grid>
         </div>
+
       );
 	  }
   }
