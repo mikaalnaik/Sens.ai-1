@@ -1,5 +1,5 @@
 .navbar {
-  background-color: white;
+  background-color: #212733;
   z-index: 10;
   height: 4em;
   left: 0;
@@ -7,7 +7,7 @@
   position: fixed;
   right: 0;
   top: 0;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+  /* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) */
 }
 
 .navbar-brand {

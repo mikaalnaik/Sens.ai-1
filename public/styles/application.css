@@ -1,11 +1,12 @@
 html {
   background-color: #212733;
   font-family: 'Roboto', sans-serif;
+  color: white;
 
 }
 
 #wrap {
-  margin: 0px 100px 0 100px;
+  margin: 0 auto;
   display: inline-block;
   position: relative;
   height: 60px;

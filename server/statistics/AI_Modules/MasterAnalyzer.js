@@ -15,7 +15,7 @@ async function postsAnalyzer(posts) {
   let sentimentAnalyzedPosts = intentFilteredPosts.map( post => {
     return sentimentAnalyzer(post)
   })
-  
+
   return sentimentAnalyzedPosts = await Promise.all(sentimentAnalyzedPosts)
 }
 
