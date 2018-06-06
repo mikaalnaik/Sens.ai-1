@@ -35,7 +35,7 @@ class App extends Component {
 
   searchSubmission = async (query) => {
     this.setState( { searchSubmit : true, currentQuery: query } )
-    let posts = await this.fetchPosts(query)
+    // let posts = await this.fetchPosts(query)
   }
 
   render() {
