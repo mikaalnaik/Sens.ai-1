@@ -49,7 +49,7 @@ console.log(mappedReddit);
       created_at: status.created_at
     }))
     // console.log(data);
-    console.log(JSO N.stringify({tweetdata}, null, 2))
+    console.log(JSON.stringify({tweetdata}, null, 2))
   })
 }
 
