@@ -71,21 +71,20 @@ input[type="submit"]:hover {
 
 /* Line Chart Graph */
 .Card{
-  /* box-shadow: 0px 4px 4px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); */
   margin: 2em 2em;
   /* padding: 1em 1em 1em 1em; */
 }
 
-h3 {
+.cardHeader {
   align-self: center;
+  font-family: 'Open Sans', sans-serif, 300;
+  font-weight: 300;
   float: none;
   text-align: center;
-  margin: 0px;
+  font-size: 1.4em;
+  margin: 10em 5em;
 }
 
-.pie {
-  width: 100%;
-}
 
 .load {
   align-self: center;
