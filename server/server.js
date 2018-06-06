@@ -14,6 +14,31 @@ console.log(process.env.SECRETCONSUMERKEY);
 app.use(express.static('public'))
 .listen(PORT, '0.0.0.0', 'localhost', () => console.log(`Listening on ${ PORT }`));
 
+//////////////// CODE PART - 1 : ROUTES FOR DATABASE MODULES - CREATED BY HEMANT /////////////////////////
+
+app.get("/users/:id", (req, res) => {
+  userModule.getUserDetailsById(req.params.id)
+  .then((rows) => {
+    res.json(rows);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+});
+
+app.get("/results/user/:id1/search/:id2", (req, res) => {
+  searchResultModule.getSearchResultById(req.params.id1, req.params.id2)
+  .then((rows) => {
+    res.json(rows);
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+});
+//////////////////// END OF CODE PART - 1 /////////////////////////
+
+
 // Twitter API
 var T = new Twit({
 consumer_key: process.env.SECRETCONSUMERKEY,
