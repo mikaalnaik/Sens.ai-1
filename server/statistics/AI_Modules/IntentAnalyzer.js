@@ -23,21 +23,15 @@ const intentAnalyzer = function(post) { // analyzes all posts
 
 async function intentFilter(posts) { // filters posts based on intent
 
-  let intentAnalyzedPosts = posts.map( post => {
-    if (intentAnalyzer(post)) {
-      return intentAnalyzer(post)
-    }
-  })
-  // let intentAnalyzedPosts = [];
-  //
-  // posts.forEach( async post => {
-  //   if (intentAnalyzer(post)) {
-  //     intentAnalyzerApiCall = await intentAnalyzer(post)
-  //     // intentAnalyzedPosts.push(intentAnalyzerApiCall)
-  //   }
-  // })
+  let intentAnalyzedPosts = [];
+
+  for(post of posts) {
+    intentAnalyzedPosts.push(intentAnalyzer(post))
+  }
 
   intentAnalyzedPosts = await Promise.all(intentAnalyzedPosts)
+
+  console.log(intentAnalyzedPosts)
 
   const intentFilter = function(post) {
 
