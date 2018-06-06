@@ -686,13 +686,11 @@ const queryResults = [
 async function computeData(posts) {
 
   let analyzedPosts = await postsAnalyzer(posts)
-  // let overallSentiments = await getOverallSentiments(analyzedPosts)
-  // let specificSentiments = await getSpecificSentiments(analyzedPosts)
-  //
-  // return {overallHowManyWere: overallSentiments, specificHowManyWere: specificSentiments}
+  let overallSentiments = await getOverallSentiments(analyzedPosts)
+  let specificSentiments = await getSpecificSentiments(analyzedPosts)
+
+  return {overallHowManyWere: overallSentiments, specificHowManyWere: specificSentiments}
 
 }
-
-computeData(queryResults)
 
 module.exports = computeData
