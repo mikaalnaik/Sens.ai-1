@@ -28,12 +28,17 @@ class App extends Component {
     }
   }
 
-  searchSubmission = query => {
-    this.setState({searchSubmit : true})
+  fetchPosts = async (query) => {
+    const response = await (await fetch(`/results/${query}`)).json()
+    return response;
+  }
+
+  searchSubmission = async (query) => {
+    this.setState( { searchSubmit : true, currentQuery: query } )
+    let posts = await this.fetchPosts(query)
   }
 
   render() {
-
     return (
       <div>
         <div> <NavBar/> </div>
@@ -46,7 +51,6 @@ class App extends Component {
           />
         </div>
       </div>
-
     );
   }
 }
