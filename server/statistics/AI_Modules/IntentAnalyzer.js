@@ -28,6 +28,14 @@ async function intentFilter(posts) { // filters posts based on intent
       return intentAnalyzer(post)
     }
   })
+  // let intentAnalyzedPosts = [];
+  //
+  // posts.forEach( async post => {
+  //   if (intentAnalyzer(post)) {
+  //     intentAnalyzerApiCall = await intentAnalyzer(post)
+  //     // intentAnalyzedPosts.push(intentAnalyzerApiCall)
+  //   }
+  // })
 
   intentAnalyzedPosts = await Promise.all(intentAnalyzedPosts)
 

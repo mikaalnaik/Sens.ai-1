@@ -1,7 +1,7 @@
 function sentimentCounter(analysis, counterObj) {
   if (analysis.tone == 'Sadness') {
     counterObj.dissapointed++;
-  } else if (analysis.tone === 'Angry') {
+  } else if (analysis.tone === 'Anger') {
     counterObj.angry++;
   } else if (analysis.tone === 'Fear') {
     counterObj.cautious++;
@@ -26,6 +26,7 @@ async function specificSentiments(analyzedPosts) {
       doubtful: 0,
       happy: 0
     }
+
 
     for (let post of analyzedPosts) {
       post.tones.forEach( analysis => {
