@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {Pie, Line, Bar, Polar, Doughnut} from 'react-chartjs-2';
+import {Pie, Line, Bar, Polar, Doughnut, Radar} from 'react-chartjs-2';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 
-class PieExample extends Component {
+class OverallSentiment extends Component {
   constructor(props){
     super(props);
   }
@@ -108,17 +108,42 @@ class PieExample extends Component {
       }
     };
 
+    const dataRadar = (canvas) => {
+      return {
+        datasets: [{
+    data: [
+      11,
+      16,
+      7,
+      3,
+      14
+    ],
+    backgroundColor: [
+      '#FF6384',
+      '#4BC0C0',
+      '#FFCE56',
+      '#E7E9ED',
+      '#36A2EB'
+    ],
+    label: 'My dataset' // for legend
+  }],
+  labels: [
+    'Red',
+    'Green',
+    'Yellow',
+    'Grey',
+    'Blue'
+  ]
+};
+    };
+
 
 		if(!this.props.searched){
 			return (<p></p>)
 		} else {
       return (
         <div className="Card">
-          <div className="buttonHolder">
-            <button className="button1">
-              <i class="far fa-arrow-alt-circle-down"></i>
-            </button>
-          </div>
+
           <Grid fluid>
             <Row>
               <Col xs={12} sm={12} md={12} lg={12}>
@@ -129,13 +154,19 @@ class PieExample extends Component {
             <Row>
               <Col xs={12} sm={12} md={12} lg={6}>
                 <div className="singleChart">
-                  <Pie data={dataPie}/>
+                  <Doughnut data={dataPie}/>
                 </div>
               </Col>
 
               <Col xs={12} sm={12} md={12} lg={6}>
                 <div className="singleChart">
-                  <Line data={dataLine} />
+                  <Line data={dataLine}   options={
+                          {
+                            legend:{
+                          position:'bottom'
+                        },
+                        scales: {xAxes: [{gridLines: {color: "rgba(0, 0, 0, 0)",}}],
+                                yAxes: [{gridLines: {color: "rgba(0, 0, 0, 0)",}}]}}}/>
                 </div>
               </Col>
             </Row>
@@ -143,11 +174,29 @@ class PieExample extends Component {
             <Row>
               <Col xs={12} sm={12} md={12} lg={6}>
                 <div className="singleChart">
-                  <Bar data={dataBar} />
+                  <Bar data={dataBar}   options={
+                          {
+                            legend:{
+                          position:'bottom'
+                        },
+                        scales: {xAxes: [{gridLines: {color: "rgba(0, 0, 0, 0)",}}],
+                                yAxes: [{gridLines: {color: "rgba(0, 0, 0, 0)",}}]}}}/>
                 </div>
               </Col>
             </Row>
-
+            <Row>
+              <Col xs={12} sm={12} md={12} lg={6}>
+                <div className="singleChart">
+                  <Polar data={dataRadar}   options={
+                          {
+                            legend:{
+                          position:'bottom'
+                        },
+                        scales: {xAxes: [{gridLines: {color: "rgba(0, 0, 0, 0)",}}],
+                                yAxes: [{gridLines: {color: "rgba(0, 0, 0, 0)",}}]}}}/>
+                </div>
+              </Col>
+            </Row>
 
           </Grid>
         </div>
@@ -156,4 +205,4 @@ class PieExample extends Component {
   }
 }
 
-export default PieExample
+export default OverallSentiment

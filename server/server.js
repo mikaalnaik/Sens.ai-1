@@ -11,7 +11,6 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'))
-<<<<<<< HEAD
 .listen(PORT, '0.0.0.0', 'localhost', () => console.log(`Listening on ${ PORT }`));
 
 //////////////// CODE PART - 1 : ROUTES FOR DATABASE MODULES - CREATED BY HEMANT /////////////////////////
