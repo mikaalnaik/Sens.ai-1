@@ -31,7 +31,7 @@ async function intentFilter(posts) { // filters posts based on intent
 
   intentAnalyzedPosts = await Promise.all(intentAnalyzedPosts)
 
-  console.log(intentAnalyzedPosts)
+  // console.log(intentAnalyzedPosts)
 
   const intentFilter = function(post) {
 

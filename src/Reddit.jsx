@@ -3,7 +3,7 @@ import {Pie, Line, Bar, Polar, Doughnut, Radar} from 'react-chartjs-2';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 
-class OverallSentiment extends Component {
+class Reddit extends Component {
   constructor(props){
     super(props);
   }
@@ -171,7 +171,7 @@ class OverallSentiment extends Component {
             <Row>
               <Col xs={12} sm={12} md={12} lg={12}>
                 <div className='cardHeader'>
-                  Overall Emotional Sentiment {this.props.querySearched}
+                  Analysis of Reddit
                 </div>
               </Col>
             </Row>
@@ -179,7 +179,7 @@ class OverallSentiment extends Component {
             <Row>
               <Col xs={12} sm={12} md={12} lg={6}>
                 <div className="singleChart">
-                  <Doughnut data={dataPie}/>
+                  <Pie data={dataPie}/>
                 </div>
               </Col>
 
@@ -230,4 +230,4 @@ class OverallSentiment extends Component {
 	  }
 }
 
-export default OverallSentiment
+export default Reddit

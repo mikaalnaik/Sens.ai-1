@@ -4,6 +4,7 @@ import Search from './search.jsx'
 import OverallSentiment from './OverallSentiments'
 import Jumbotron from './Jumbotron'
 import Twitter from './Twitter'
+import Reddit from './Reddit'
 import './App.css';
 
 let data = {
@@ -15,8 +16,21 @@ let data = {
                 angry: 0,
                          cautious: 33.33,
                          doubtful: 33.33,
-                         happy: 33.33 }
+                         happy: 33.33 },
+                         reddit:{
+                         overallHowManyWere: {
+                           positive: 14,
+                       	negative: 86 },
+                         specificHowManyWere:{
+                           dissapointed: 42,
+                                       angry: 13,
+                                                cautious: 14,
+                                                doubtful: 29,
+                                                happy: 36
                        }
+                     }
+                   }
+
 
 class App extends Component {
 
@@ -31,31 +45,43 @@ class App extends Component {
   fetchPosts = async (query) => {
     const response = await (await fetch(`/results/${query}`)).json()
     console.log(response)
-    this.setState( { statistics: response }, () => {
-      console.log("State: ", this.state.statistics) } )
+    this.setState( { statistics: response }  )
 
   }
 
   searchSubmission = async (query) => {
-    this.setState( { searchSubmit : true, currentQuery: query } )
+    this.setState( { searchSubmit :true, currentQuery: query } )
+    console.log(query);
+    console.log(this.state);
     // let posts = await this.fetchPosts(query)
   }
 
   render() {
+    if(!this.state.searchSubmit){
+      return (  <div>
+        <div> <NavBar/> </div>
+              <div> <Jumbotron/> </div>
+              <div> <Search query={this.searchSubmission}/> </div>
+            </div>
+          )
+    } else {
     return (
       <div>
         <div> <NavBar/> </div>
         <div> <Jumbotron/> </div>
         <div> <Search query={this.searchSubmission}/> </div>
-        <div className="pie">
+
+
           <OverallSentiment
             searched={this.state.searchSubmit}
             chartData ={this.state.statistics}
           />
-        </div>
+          <Reddit chartData={this.state.statistics} />
+
   </div>
     );
   }
+}
 }
 
 export default App;

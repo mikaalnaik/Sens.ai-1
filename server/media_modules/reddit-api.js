@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 async function fetchRedditPosts(query) {
 
-  let rawRedditPosts = await fetch(`https://api.pushshift.io/reddit/search/comment?q=${query}&limit=50`);
+  let rawRedditPosts = await fetch(`https://api.pushshift.io/reddit/search/comment?q=${query}&limit=20`);
 
   let jsonRedditPosts = await rawRedditPosts.json();
 
