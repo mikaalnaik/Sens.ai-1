@@ -13,11 +13,13 @@
     "paralleldots": "^3.1.1",
     "pg": "^7.4.3",
     "react": "^16.4.0",
+    "react-anchor-link-smooth-scroll": "^1.0.10",
     "react-burger-menu": "^2.5.0",
     "react-chartjs-2": "^2.7.2",
     "react-dom": "^16.4.0",
     "react-flexbox-grid": "^2.1.2",
     "react-scripts": "1.1.4",
+    "react-scrollable-anchor": "^0.6.1",
     "twit": "^2.2.10",
     "watson-developer-cloud": "^3.4.5"
   },

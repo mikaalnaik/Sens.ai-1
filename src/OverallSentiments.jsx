@@ -8,6 +8,10 @@ import {
   Radar
 } from 'react-chartjs-2';
 import {Grid, Row, Col} from 'react-flexbox-grid';
+import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor'
+
+configureAnchors({offset: -100, scrollDuration: 1000})
+
 
 class OverallSentiment extends Component {
   constructor(props) {
@@ -162,10 +166,14 @@ class OverallSentiment extends Component {
     return (<div className="Card">
 
       <Grid fluid="fluid">
-
-        <div className='cardHeader'>
-          Overall Emotional Sentiment {this.props.querySearched}
-        </div>
+      {/*THIS IS THE BUTTON THAT TRIGGERS THE SCROLL*/}
+        <p className="emotionP"><a href="#emotion"><i class="fas fa-angle-double-down"></i></a></p>
+      {/*THIS IS THE BUTTON THAT TRIGGERS THE SCROLL*/}
+        <ScrollableAnchor id={'emotion'}>
+          <div className='cardHeader'>
+            Overall Emotional Sentiment {this.props.querySearched}
+          </div>
+        </ScrollableAnchor>
 
         <Row>
           <Col xs={12} sm={12} md={12} lg={6}>
