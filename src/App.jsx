@@ -5,6 +5,7 @@ import OverallSentiment from './OverallSentiments'
 import Jumbotron from './Jumbotron'
 import Twitter from './Twitter'
 import Reddit from './Reddit'
+import Footer from './Footer'
 import './App.css';
 
 let data = {
@@ -59,15 +60,15 @@ class App extends Component {
   render() {
     if(!this.state.searchSubmit){
       return (  <div>
-        <div> <NavBar/> </div>
-              <div> <Jumbotron/> </div>
+       <NavBar/>
+               <Jumbotron/>
               <div> <Search query={this.searchSubmission}/> </div>
             </div>
           )
     } else {
     return (
       <div>
-        <div> <NavBar/> </div>
+         <NavBar/>
         <div> <Jumbotron/> </div>
         <div> <Search query={this.searchSubmission}/> </div>
 
@@ -77,7 +78,8 @@ class App extends Component {
             chartData ={this.state.statistics}
           />
           <Reddit chartData={this.state.statistics} />
-
+          <Twitter chartData={this.state.statistics}/>
+            <Footer/>
   </div>
     );
   }

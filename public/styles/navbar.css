@@ -11,14 +11,34 @@
 }
 
 .navbar-brand {
-  color: #8e99a7;
+  color: grey;
   display: block;
   font-family: 'Roboto', sans-serif;
     float: left;
     font-weight: 700;
-    font-size: 28px;
+    font-size: 1em;
     height: 60px;
     line-height: 60px;
     padding: .1em 1.8em;
+    text-decoration: none;
+}
+
+.footer{
+  bottom: 0px;
+  height: 4em;
+  padding-top: 2em;
+  text-align: center;
+}
+
+.footer-brand {
+  color: #57585a;
+  display: block;
+  font-family: 'Roboto', sans-serif;
+    float: left;
+    font-weight: 700;
+    font-size: 1em;
+    height: 60px;
+    line-height: 60px;
+    padding: 1em 0 0 2em;
     text-decoration: none;
 }

@@ -9,15 +9,15 @@ class Reddit extends Component {
   }
 
   render() {
-    let chartSet = this.props.chartData.overallHowManyWere
-    let chartSpecific = this.props.chartData.specificHowManyWere
+    let chartSet = this.props.chartData.reddit
+    let chartSpecific = this.props.chartData.reddit.specificHowManyWere
 
     const dataBar = (canvas) => {
       const ctx = canvas.getContext("2d")
-      var gradientStroke = ctx.createRadialGradient(0, 0,0,0, 0, 600);
+      var gradientStroke = ctx.createRadialGradient(0, 0,0,0, 0, 300);
       gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
       gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
-      var gradientStroke2 = ctx.createRadialGradient(0, 0,0,0, 0, 600);
+      var gradientStroke2 = ctx.createRadialGradient(0, 0,0,0, 0, 450);
       gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
       gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
 
@@ -40,10 +40,10 @@ class Reddit extends Component {
     const dataPie = (canvas) => {
 
       const ctx = canvas.getContext("2d")
-      var gradientStroke = ctx.createRadialGradient(0, 0,0,0, 0, 600);
+      var gradientStroke = ctx.createRadialGradient(0, 0,0,0, 0, 300);
       gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
       gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
-      var gradientStroke2 = ctx.createRadialGradient(0, 0,0,0, 0, 600);
+      var gradientStroke2 = ctx.createRadialGradient(0, 0,0,0, 0, 450);
       gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
       gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
 
@@ -53,7 +53,7 @@ class Reddit extends Component {
           'Negative Response'
         ],
         datasets: [{
-          data: [chartSet.positive, chartSet.negative],
+          data: [chartSet.overallHowManyWere.positive, chartSet.overallHowManyWere.negative],
           backgroundColor: [
             gradientStroke,
             gradientStroke2
@@ -116,17 +116,17 @@ class Reddit extends Component {
       gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
       gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
 
-      let gradientStroke2 = ctx.createRadialGradient(0, 0,0,0, 0, 600);
+      let gradientStroke2 = ctx.createRadialGradient(0, 0,0,0, 0, 450);
       gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
       gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
 
       let gradientStroke3 = ctx.createRadialGradient(0, 0,0,0, 0, 600);
-      gradientStroke3.addColorStop(0.5, 'rgb(192, 72, 72, 0.25)');
-      gradientStroke3.addColorStop(1, 'rgb(76, 184, 196, 1)');
+      gradientStroke3.addColorStop(0.5, 'rgb(43, 192, 228, 0.25)');
+      gradientStroke3.addColorStop(1, 'rgb(234, 236, 198, 1)');
 
       let gradientStroke4 = ctx.createRadialGradient(0, 0,0,0, 0, 600);
-      gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
-      gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
+      gradientStroke4.addColorStop(0.5, 'rgb(255, 128, 8, 0.25)');
+      gradientStroke4.addColorStop(1, 'rgb(255, 200, 55, 1)');
 
       let gradientStroke5 = ctx.createRadialGradient(0, 0,0,0, 0, 600);
       gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
@@ -146,18 +146,18 @@ class Reddit extends Component {
       gradientStroke,
       gradientStroke2,
       gradientStroke3,
-      gradientStroke,
+      gradientStroke4,
       gradientStroke
     ],
     borderWidth: 0,
     label: 'My dataset' // for legend
   }],
   labels: [
-    'Red',
-    'Green',
-    'Yellow',
-    'Grey',
-    'Blue'
+    'Disapointed',
+    'Angry',
+    'Cautious',
+    'Doubtful',
+    'Happy'
   ]
 };
     };
@@ -179,7 +179,12 @@ class Reddit extends Component {
             <Row>
               <Col xs={12} sm={12} md={12} lg={6}>
                 <div className="singleChart">
-                  <Pie data={dataPie}/>
+                  <Pie data={dataPie}
+                  options={
+                          {
+                            legend:{
+                          position:'bottom'
+                        }}}/>
                 </div>
               </Col>
 
