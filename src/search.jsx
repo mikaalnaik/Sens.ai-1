@@ -18,8 +18,8 @@ class Search extends Component {
     return (
       <div id="wrap">
         <form >
-          <input  id="search" name="search" type="text" placeholder="Find Insight" onKeyDown={this.handleKeyPress} />
-          <input id="search_submit" value="Rechercher" type="submit"/>
+          <input  id="search" name="search" type="text" autocomplete='off' placeholder="Find Insight" onKeyDown={this.handleKeyPress} />
+          <input id="search_submit" value="Rechercher" type="submit" autocomplete='off'/>
         </form>
       </div>
     );
