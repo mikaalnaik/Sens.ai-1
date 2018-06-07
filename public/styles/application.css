@@ -80,6 +80,7 @@ h3 {
   float: none;
   text-align: center;
   margin: 0px;
+  padding-top: 4em;
 }
 
 .pie {
@@ -114,4 +115,13 @@ h3 {
 
 .buttonHolder {
   text-align: center;
+}
+
+.emotionP {
+  text-align: center;
+  font-size: 4em;
+}
+
+.fa-angle-double-down {
+  color: #8e99a7;
 }
