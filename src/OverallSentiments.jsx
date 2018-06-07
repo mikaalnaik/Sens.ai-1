@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-<<<<<<< HEAD
 import {
   Pie,
   Line,
@@ -12,14 +11,6 @@ import {Grid, Row, Col} from 'react-flexbox-grid';
 
 class OverallSentiment extends Component {
   constructor(props) {
-=======
-import {Pie, Line, Bar, Polar, Doughnut} from 'react-chartjs-2';
-import { Grid, Row, Col } from 'react-flexbox-grid';
-import Load from './load'
-
-class PieExample extends Component {
-  constructor(props){
->>>>>>> feature/scroll-test
     super(props);
   }
 
@@ -172,7 +163,6 @@ class PieExample extends Component {
 
       <Grid fluid="fluid">
 
-<<<<<<< HEAD
         <div className='cardHeader'>
           Overall Emotional Sentiment {this.props.querySearched}
         </div>
@@ -286,100 +276,7 @@ class PieExample extends Component {
         </Row>
       </Grid>
     </div>);
-=======
-		if(!this.props.searched){
-			return (<p></p>)
-		} else {
-      return (
-        <div>
-          <div className="Card">
 
-          {/*THIS IS THE BUTTON THAT TRIGGERS THE SCROLL*/}
-            <div>
-              <p className="emotionP"><a href="#emotion" role="button"><i class="fas fa-angle-double-down"></i></a></p>
-            </div>
-          {/*THIS IS THE BUTTON THAT TRIGGERS THE SCROLL*/}
-
-            <Grid fluid>
-              <Row>
-                <Col xs={12} sm={12} md={12} lg={12}>
-                  <h3 id="emotion">Overall Emotional Sentiment {this.props.querySearched}</h3>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col xs={12} sm={12} md={12} lg={6}>
-                  <div className="singleChart">
-                    <Pie data={dataPie}/>
-                  </div>
-                </Col>
-
-                <Col xs={12} sm={12} md={12} lg={6}>
-                  <div className="singleChart">
-                    <Line data={dataLine} />
-                  </div>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col xs={12} sm={12} md={12} lg={6}>
-                  <div className="singleChart">
-                    <Bar data={dataBar} />
-                  </div>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col xs={12} sm={12} md={12} lg={6}>
-                  <div className="singleChart">
-                    <Pie data={dataPie}/>
-                  </div>
-                </Col>
-
-                <Col xs={12} sm={12} md={12} lg={6}>
-                  <div className="singleChart">
-                    <Line data={dataLine} />
-                  </div>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col xs={12} sm={12} md={12} lg={6}>
-                  <div className="singleChart">
-                    <Bar data={dataBar} />
-                  </div>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col xs={12} sm={12} md={12} lg={6}>
-                  <div className="singleChart">
-                    <Pie data={dataPie}/>
-                  </div>
-                </Col>
-
-                <Col xs={12} sm={12} md={12} lg={6}>
-                  <div className="singleChart">
-                    <Line data={dataLine} />
-                  </div>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col xs={12} sm={12} md={12} lg={6}>
-                  <div className="singleChart">
-                    <Bar data={dataBar} />
-                  </div>
-                </Col>
-              </Row>
-
-            </Grid>
-          </div>
-        </div>
-
-      );
-	  }
->>>>>>> feature/scroll-test
   }
 }
 
