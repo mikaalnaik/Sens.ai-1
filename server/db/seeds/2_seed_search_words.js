@@ -5,9 +5,9 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('searchwords').insert([
-        {id: 1, searchname: 'Cocacola'},
-        {id: 2, searchname: 'iPhone'},
-        {id: 3, searchname: 'LighthouseLabs'}
+        {searchname: 'COCACOLA'},
+        {searchname: 'IPHONE'},
+        {searchname: 'KINGS BURGER'}
       ]);
     });
 };

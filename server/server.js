@@ -37,4 +37,4 @@ app.get("/results/:id", async (req, res) => {
     console.log(stats)
 
     res.send(stats)
-})
+});

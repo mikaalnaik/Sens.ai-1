@@ -5,7 +5,11 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('users').insert([
-        {id: 1, name: 'TempUser'}
+        {name: 'TEMPUSER1'},
+        {name: 'TEMPUSER2'},
+        {name: 'TEMPUSER3'},
+        {name: 'TEMPUSER4'},
+        {name: 'TEMPUSER5'}
       ]);
     });
 };
