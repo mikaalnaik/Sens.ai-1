@@ -172,7 +172,7 @@ class Reddit extends Component {
 
           <Grid fluid>
           {/*THIS IS THE BUTTON THAT TRIGGERS THE SCROLL*/}
-            <p className="redditTwitter"><a href="#scrollReddit"><i className="fas fa-angle-double-down"></i></a></p>
+            <p className="redditTwitter"><a href="#scrollReddit"><i className="fa fa-angle-down"></i></a></p>
           {/*THIS IS THE BUTTON THAT TRIGGERS THE SCROLL*/}
             <ScrollableAnchor id={'scrollReddit'}>
               <div className='cardHeader'>

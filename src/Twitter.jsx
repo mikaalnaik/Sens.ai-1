@@ -181,7 +181,7 @@ class Twitter extends Component {
           <Grid fluid>
 
           {/*THIS IS THE BUTTON THAT TRIGGERS THE SCROLL*/}
-            <p className="redditTwitter"><a href="#scrollTwitter"><i className="fas fa-angle-double-down"></i></a></p>
+            <p className="redditTwitter"><a href="#scrollTwitter"><i className="fa fa-angle-down"></i></a></p>
           {/*THIS IS THE BUTTON THAT TRIGGERS THE SCROLL*/}
             <ScrollableAnchor id={'scrollTwitter'}>
               <div className='cardHeader'>

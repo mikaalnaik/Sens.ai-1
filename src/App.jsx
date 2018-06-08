@@ -6,31 +6,35 @@ import Jumbotron from './Jumbotron'
 import Twitter from './Twitter'
 import Reddit from './Reddit'
 import Footer from './Footer'
+import {Grid, Row, Col} from 'react-flexbox-grid';
 import './App.css';
 
 let data = {
   overallHowManyWere: {
     positive: 66,
-	negative: 33 },
+	  negative: 33
+  },
   specificHowManyWere:{
     dissapointed: 0,
-                angry: 0,
-                         cautious: 33.33,
-                         doubtful: 33.33,
-                         happy: 33.33 },
-                         reddit:{
-                         overallHowManyWere: {
-                           positive: 14,
-                       	negative: 86 },
-                         specificHowManyWere:{
-                           dissapointed: 42,
-                                       angry: 13,
-                                                cautious: 14,
-                                                doubtful: 29,
-                                                happy: 36
-                       }
-                     }
-                   }
+    angry: 0,
+    cautious: 33.33,
+    doubtful: 33.33,
+    happy: 33.33
+  },
+  reddit:{
+    overallHowManyWere: {
+      positive: 14,
+   	  negative: 86
+    },
+    specificHowManyWere:{
+      dissapointed: 42,
+      angry: 13,
+      cautious: 14,
+      doubtful: 29,
+      happy: 36
+    }
+  }
+}
 
 
 class App extends Component {
@@ -59,31 +63,51 @@ class App extends Component {
 
   render() {
     if(!this.state.searchSubmit){
-      return (  <div>
-       <NavBar/>
-               <Jumbotron/>
-              <div> <Search query={this.searchSubmission}/> </div>
-            </div>
+      return (
+        <div>
+          <NavBar/>
+          <Grid fluid>
+            <Row>
+              <Col xs={12} sm={12} md={12} lg={12}>
+                <Jumbotron/>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} sm={12} md={12} lg={12}>
+                <div> <Search query={this.searchSubmission}/> </div>
+              </Col>
+            </Row>
+          </Grid>
+        </div>
           )
     } else {
     return (
       <div>
-         <NavBar/>
-        <div> <Jumbotron/> </div>
-        <div> <Search query={this.searchSubmission}/> </div>
+        <NavBar/>
+        <Grid fluid>
+          <Row>
+            <Col xs={12} sm={12} md={12} lg={12}>
+              <Jumbotron/>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} sm={12} md={12} lg={12}>
+              <div> <Search query={this.searchSubmission}/> </div>
+            </Col>
+          </Row>
+        </Grid>
 
-
-          <OverallSentiment
-            searched={this.state.searchSubmit}
-            chartData ={this.state.statistics}
-          />
-          <Reddit chartData={this.state.statistics} />
-          <Twitter chartData={this.state.statistics}/>
-            <Footer/>
-  </div>
+        <OverallSentiment
+          searched={this.state.searchSubmit}
+          chartData ={this.state.statistics}
+        />
+        <Reddit chartData={this.state.statistics} />
+        <Twitter chartData={this.state.statistics}/>
+        <Footer/>
+      </div>
     );
+    }
   }
-}
 }
 
 export default App;
