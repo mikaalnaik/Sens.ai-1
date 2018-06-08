@@ -34,14 +34,14 @@ class Twitter extends Component {
             data: [15, 29,23,45]
           },
           {
-            label: 'Twitter',
-            backgroundColor:[ gradientStroke2],
-            borderColor: '#3e3e3e',
+            label: 'Reddit',
+            backgroundColor:[ gradientStroke,gradientStroke2],
+            borderColor: 'white',
             borderWidth: 0,
             hoverBackgroundColor: 'rgba(255,99,132,0.4)',
             hoverBorderColor: 'rgba(255,99,132,1)',
-            data: [23, 12,23,53]
-          }
+            data: [15, 29,23,45]
+          },
         ]
       }
     };
@@ -78,17 +78,18 @@ class Twitter extends Component {
 
     const dataLine = (canvas) =>  {
 
-      const ctx = canvas.getContext("2d")
-      var gradientStroke = ctx.createLinearGradient(0, 0, 0, 250);
-      gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
-      gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
+      let dates = [1,2,4]
 
-      var gradientStroke2 = ctx.createLinearGradient(0, 0, 0, 450);
-      gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
-      gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
+            const ctx = canvas.getContext("2d")
+            var gradientStroke = ctx.createRadialGradient(0, 0,0,0, 0, 300);
+            gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
+            gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
+            var gradientStroke2 = ctx.createRadialGradient(0, 0,0,0, 0, 450);
+            gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
+            gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
 
       return {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: dates,
         datasets: [
           {
            label: 'Reddit',
