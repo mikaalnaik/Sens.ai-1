@@ -189,56 +189,7 @@ class Reddit extends Component {
       };
     };
 
-    return (<div className="Card">
 
-      <Grid fluid="fluid">
-        <Row>
-          <Col xs={12} sm={12} md={12} lg={12}>
-            <div className='cardHeader'>
-              Analysis of Reddit
-            </div>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col xs={12} sm={12} md={12} lg={6}>
-            <div className="singleChart">
-              <Pie data={dataPie} options={{
-                  legend: {
-                    position: 'bottom'
-                  }
-                }}/>
-            </div>
-          </Col>
-
-          <Col xs={12} sm={12} md={12} lg={6}>
-            <div className="singleChart">
-              <Line data={dataLine} options={{
-                  legend: {
-                    position: 'bottom'
-                  },
-                  scales: {
-                    xAxes: [
-                      {
-                        gridLines: {
-                          color: "rgba(0, 0, 0, 0)"
-                        }
-                      }
-                    ],
-                    yAxes: [
-                      {
-                        gridLines: {
-                          color: "rgba(0, 0, 0, 0)"
-                        }
-                      }
-                    ]
-                  }
-                }}/>
-            </div>
-          </Col>
-        </Row>
-
-<<<<<<< HEAD
       return (
         <div className="Card">
 
@@ -309,67 +260,6 @@ class Reddit extends Component {
         </div>
       );
 	  }
-=======
-        <Row>
-          <Col xs={12} sm={12} md={12} lg={6}>
-            <div className="singleChart">
-              <Bar data={dataBar} options={{
-                  legend: {
-                    position: 'bottom'
-                  },
-                  scales: {
-                    xAxes: [
-                      {
-                        gridLines: {
-                          color: "rgba(0, 0, 0, 0)"
-                        }
-                      }
-                    ],
-                    yAxes: [
-                      {
-                        gridLines: {
-                          color: "rgba(0, 0, 0, 0)"
-                        }
-                      }
-                    ]
-                  }
-                }}/>
-            </div>
-          </Col>
-
-          <Col xs={12} sm={12} md={12} lg={6}>
-            <div className="singleChart">
-              <Polar data={dataRadar} options={{
-                  legend: {
-                    position: 'bottom'
-                  },
-                  scale: {
-                    display: false
-                  },
-                  scales: {
-                    xAxes: [
-                      {
-                        gridLines: {
-                          color: "rgba(0, 0, 0, 0)"
-                        }
-                      }
-                    ],
-                    yAxes: [
-                      {
-                        gridLines: {
-                          color: "rgba(0, 0, 0, 0)"
-                        }
-                      }
-                    ]
-                  }
-                }}/>
-            </div>
-          </Col>
-        </Row>
-      </Grid>
-    </div>);
-  }
->>>>>>> UI3
 }
 
 export default Reddit

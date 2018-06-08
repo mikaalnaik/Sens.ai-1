@@ -127,7 +127,6 @@ input[type="submit"]:hover {
   text-align: center;
 }
 
-<<<<<<< HEAD
 .emotionP {
   text-align: center;
   font-size: 3em;
@@ -142,12 +141,9 @@ input[type="submit"]:hover {
 
 .fa-angle-double-down {
   color: #8e99a7;
-=======
-
+}
 
 .validity{
   animation: fadeIn .5s ease-in 1 forwards;
   text-align: center;
   font-size: 2em;
->>>>>>> UI3
-}
