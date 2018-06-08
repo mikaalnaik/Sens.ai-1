@@ -12,14 +12,13 @@ import {Grid, Row, Col} from 'react-flexbox-grid';
 
 class OverallSentiment extends Component {
   constructor(props) {
-=======
 import {Pie, Line, Bar, Polar, Doughnut} from 'react-chartjs-2';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Load from './load'
 
 class PieExample extends Component {
   constructor(props){
->>>>>>> feature/scroll-test
+
     super(props);
   }
 
@@ -172,7 +171,7 @@ class PieExample extends Component {
 
       <Grid fluid="fluid">
 
-<<<<<<< HEAD
+
         <div className='cardHeader'>
           Overall Emotional Sentiment {this.props.querySearched}
         </div>
@@ -286,7 +285,7 @@ class PieExample extends Component {
         </Row>
       </Grid>
     </div>);
-=======
+
 		if(!this.props.searched){
 			return (<p></p>)
 		} else {
@@ -379,7 +378,6 @@ class PieExample extends Component {
 
       );
 	  }
->>>>>>> feature/scroll-test
   }
 }
 
