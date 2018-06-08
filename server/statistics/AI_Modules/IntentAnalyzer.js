@@ -12,6 +12,7 @@ const intentAnalyzer = function(post) { // analyzes all posts
       .then((response) => {
         let res = JSON.parse(response)
         post.analysis = res
+        // console.log("Inside intent analyzer:", post.analysis)
         return resolve(post)
       })
       .catch( (e) => { return reject(e) } )
@@ -30,8 +31,6 @@ async function intentFilter(posts) { // filters posts based on intent
   }
 
   intentAnalyzedPosts = await Promise.all(intentAnalyzedPosts)
-
-  // console.log(intentAnalyzedPosts)
 
   const intentFilter = function(post) {
 

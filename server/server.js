@@ -13,41 +13,28 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'))
   .listen(PORT, '0.0.0.0', 'localhost', () => console.log(`Listening on ${ PORT }`));
 
-//////////////// CODE PART - 1 : ROUTES FOR DATABASE MODULES - CREATED BY HEMANT /////////////////////////
-
-app.get("/users/:id", (req, res) => {
-  userModule.getUserDetailsById(req.params.id)
-  .then((rows) => {
-    res.json(rows);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
-});
-
-app.get("/results/user/:id1/search/:id2", (req, res) => {
-  searchResultModule.getSearchResultById(req.params.id1, req.params.id2)
-  .then((rows) => {
-    res.json(rows);
-  })
-  .catch((err) => {
-    console.log(err);
-  })
-});
-//////////////////// END OF CODE PART - 1 /////////////////////////
-
-
 
 // this route will respond with the analyzed posts from reddit and twitter
 app.get("/results/:id", async (req, res) => {
-    console.log("received")
-    // let redditPosts = await fetchRedditPosts(req.params.id)
-    // let twitterPosts = await fetchTwitterPosts(req.params.id)
-    // let allPosts = redditPosts.concat(twitterPosts)
-    // allPosts = await Promise.all(allPosts)
 
-    let stats = await statsCalculator(testData)
+    console.log("*** Connected to React Client ***")
+    console.log("")
+    console.log("")
+
+    let redditPosts = await fetchRedditPosts(req.params.id)
+    let twitterPosts = await fetchTwitterPosts(req.params.id)
+    let allPosts = redditPosts.concat(twitterPosts)
+    allPosts = await Promise.all(allPosts)
+
+    console.log(allPosts.length, "posts recived from social media APIs")
+    console.log("")
+    console.log("")
+
+    let stats = await statsCalculator(allPosts)
+    console.log("Final results:")
+    console.log("")
+    console.log("")
     console.log(stats)
+
     res.send(stats)
 })
