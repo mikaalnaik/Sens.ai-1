@@ -31,10 +31,12 @@ app.get("/results/:id", async (req, res) => {
     console.log("")
 
     let stats = await statsCalculator(allPosts)
+
     console.log("Final results:")
     console.log("")
     console.log("")
     console.log(stats)
-
+    
     res.send(stats)
+
 });
