@@ -44,7 +44,6 @@ app.get("/results/:searchname", async (req, res) => {
     console.log("keyword: ", searchname);
     console.log("")
     console.log(stats)
-<<<<<<< HEAD
 
 
     //  =============== ADDING stats (final result), id (searchword if doesn't exist) to database and response to client all results for id (searchword)
@@ -88,7 +87,7 @@ app.get("/results/:searchname", async (req, res) => {
                   result.push(row.searchresult);
                 }
                 result.push(stats);
-                console.log(result);
+                //console.log(result);
                 res.send(result);
 
             })
@@ -128,7 +127,7 @@ app.get("/results/:searchname", async (req, res) => {
             result.push(row.searchresult);
           }
           result.push(stats);
-          console.log(result);
+          //console.log(result);
           res.send(result);
 
 
@@ -144,9 +143,4 @@ app.get("/results/:searchname", async (req, res) => {
     });
 
     // res.send(stats)
-=======
-    
-    res.send(stats)
-
->>>>>>> 354c9a0458d10c244819496685ab6c8c7a87e333
 });
