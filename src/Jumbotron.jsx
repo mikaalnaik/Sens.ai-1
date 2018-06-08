@@ -7,7 +7,7 @@ class Jumbotron extends Component {
 
   render() {
     return (
-      <p className="jumbo">Leverage the power of machine learning for your business</p>
+      <p className="jumbo">Leverage the power of artificial intelligience for your business</p>
     );
 	}
 }

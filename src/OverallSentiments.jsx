@@ -19,8 +19,8 @@ class OverallSentiment extends Component {
   }
 
   render() {
-    let chartSet = this.props.chartData.overallHowManyWere
-    let chartSpecific = this.props.chartData.specificHowManyWere
+    let chartSet = this.props.chartData.all.overallHowManyWere
+    let chartSpecific = this.props.chartData.all.specificHowManyWere
 
     const dataBar = (canvas) => {
       const ctx = canvas.getContext("2d")
@@ -82,21 +82,22 @@ class OverallSentiment extends Component {
 
     const dataLine = (canvas) => {
 
-      const ctx = canvas.getContext("2d")
-      var gradientStroke = ctx.createRadialGradient(0, 0, 0, 0, 0, 300);
-      gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.35)');
-      gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 0.8)');
-      var gradientStroke2 = ctx.createRadialGradient(0, 0, 0, 0, 0, 450);
-      gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.35)');
-      gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 0.8)');
+
+            const ctx = canvas.getContext("2d")
+            var gradientStroke = ctx.createRadialGradient(0, 0,0,0, 0, 300);
+            gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
+            gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
+            var gradientStroke2 = ctx.createRadialGradient(0, 0,0,0, 0, 450);
+            gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
+            gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
 
       return {
         labels: [
-          'January', 'February', 'March'
+           '6 Days Ago', '5 Days Ago', '4 Days Ago', '3 Days Ago', '2 Days Ago', 'Yesterday', 'Today'
         ],
         datasets: [
           {
-            label: 'Reddit',
+            label: 'Angry',
             borderColor: '',
             pointBackgroundColor: 'white',
             borderWidth: 2,
@@ -105,7 +106,7 @@ class OverallSentiment extends Component {
             },
             pointBorderColor: 'white',
             backgroundColor: gradientStroke2,
-            data: [40, 19, 10]
+            data: [40, 19, 10,29,32,21,30]
           }, {
             label: 'Twitter',
             lineWidth: 25,
@@ -117,7 +118,7 @@ class OverallSentiment extends Component {
               display: false
             },
             backgroundColor: gradientStroke,
-            data: [60, 15, 32]
+            data: [60, 15, 32,34,74,23,12]
           }
         ]
       }
@@ -126,17 +127,17 @@ class OverallSentiment extends Component {
     const dataRadar = (canvas) => {
 
       const ctx = canvas.getContext("2d")
-      let gradientStroke = ctx.createRadialGradient(0, 0, 0, 0, 0, 600);
+      var gradientStroke = ctx.createRadialGradient(0, 0,0,0, 0, 300);
       gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
       gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
 
-      var gradientStroke2 = ctx.createRadialGradient(0, 0, 0, 0, 0, 450);
+      var gradientStroke2 = ctx.createRadialGradient(0, 0,0,0, 0, 450);
       gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
       gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
 
       let gradientStroke3 = ctx.createRadialGradient(0, 0, 0, 0, 0, 600);
-      gradientStroke3.addColorStop(0.5, 'rgb(192, 72, 72, 0.25)');
-      gradientStroke3.addColorStop(1, 'rgb(76, 184, 196, 1)');
+      gradientStroke3.addColorStop(0.5, 'rgb(138, 239, 91, 0.25)');
+      gradientStroke3.addColorStop(1, 'rgb(35, 98, 137, 1)');
 
       let gradientStroke4 = ctx.createRadialGradient(0, 0, 0, 0, 0, 600);
       gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
@@ -153,13 +154,13 @@ class OverallSentiment extends Component {
               chartSpecific.dissapointed, chartSpecific.angry, chartSpecific.cautious, chartSpecific.doubtful, chartSpecific.happy
             ],
             backgroundColor: [
-              gradientStroke, gradientStroke2, gradientStroke3, gradientStroke, gradientStroke
+              gradientStroke, gradientStroke2, gradientStroke3, gradientStroke2, gradientStroke
             ],
             borderWidth: 0,
             label: 'My dataset' // for legend
           }
         ],
-        labels: ['Red', 'Green', 'Yellow', 'Grey', 'Blue']
+        labels: ['Disapointed', 'Angry', 'Cautious', 'Doubtful', 'Happy']
       };
     };
 
