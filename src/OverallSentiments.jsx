@@ -10,6 +10,8 @@ import {
 import {Grid, Row, Col} from 'react-flexbox-grid';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor'
 
+configureAnchors({scrollDuration: 1000})
+
 
 class OverallSentiment extends Component {
   constructor(props) {
