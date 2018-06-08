@@ -51,7 +51,6 @@ class App extends Component {
     const response = await (await fetch(`/results/${query}`)).json()
     console.log(response)
     this.setState( { statistics: response }  )
-
   }
 
   searchSubmission = async (query) => {
