@@ -3,7 +3,6 @@ import {Pie, Line, Bar, Polar, Doughnut, Radar} from 'react-chartjs-2';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor'
 
-configureAnchors({offset: -100, scrollDuration: 1000})
 
 
 class Twitter extends Component {
@@ -182,7 +181,7 @@ class Twitter extends Component {
           <Grid fluid>
 
           {/*THIS IS THE BUTTON THAT TRIGGERS THE SCROLL*/}
-            <p className="emotionP"><a href="#scrollTwitter"><i className="fas fa-angle-double-down"></i></a></p>
+            <p className="redditTwitter"><a href="#scrollTwitter"><i className="fas fa-angle-double-down"></i></a></p>
           {/*THIS IS THE BUTTON THAT TRIGGERS THE SCROLL*/}
             <ScrollableAnchor id={'scrollTwitter'}>
               <div className='cardHeader'>

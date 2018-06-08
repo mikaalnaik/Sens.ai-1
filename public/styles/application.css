@@ -76,7 +76,7 @@ input[type="submit"]:hover {
 
 /* Line Chart Graph */
 .Card{
-  margin: 2em 2em;
+  margin: 0 2em 0 2em;
   /* padding: 1em 1em 1em 1em; */
 }
 
@@ -101,6 +101,7 @@ input[type="submit"]:hover {
   padding: 2em;
   padding-bottom: 1em;
   padding-top: 2em;
+  width: 85%;
 }
 
 .jumbo {
@@ -126,7 +127,14 @@ input[type="submit"]:hover {
 
 .emotionP {
   text-align: center;
-  font-size: 4em;
+  font-size: 3em;
+  margin-top: 2em;
+}
+
+.redditTwitter {
+  text-align: center;
+  font-size: 3em;
+  margin-top: 0;
 }
 
 .fa-angle-double-down {
