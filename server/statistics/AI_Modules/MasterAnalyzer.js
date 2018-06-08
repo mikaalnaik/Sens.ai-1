@@ -11,11 +11,10 @@ const Promise = require('bluebird')
 async function postsAnalyzer(posts) {
 
   let intentFilteredPosts = await intentFilter(posts)
-
   let sentimentAnalyzedPosts = intentFilteredPosts.map( post => {
     return sentimentAnalyzer(post)
   })
-
+  sentimentAnalyzedPosts = await Promise.all(sentimentAnalyzedPosts)
   return sentimentAnalyzedPosts = await Promise.all(sentimentAnalyzedPosts)
 }
 
