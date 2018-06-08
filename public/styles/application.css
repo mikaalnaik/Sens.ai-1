@@ -87,6 +87,7 @@ input[type="submit"]:hover {
   float: none;
   text-align: center;
   font-size: 1.4em;
+  padding-top: 0.60em;
   /* margin: 1em 2em; */
 }
 
