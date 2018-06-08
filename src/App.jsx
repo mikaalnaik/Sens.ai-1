@@ -10,28 +10,43 @@ import {Grid, Row, Col} from 'react-flexbox-grid';
 import './App.css';
 
 let data = {
-  overallHowManyWere: {
-    positive: 66,
-	  negative: 33
-  },
-  specificHowManyWere:{
-    dissapointed: 0,
-    angry: 0,
-    cautious: 33.33,
-    doubtful: 33.33,
-    happy: 33.33
-  },
-  reddit:{
+  all: {
     overallHowManyWere: {
-      positive: 14,
-   	  negative: 86
+      positive: 23,
+      negative: NaN
     },
-    specificHowManyWere:{
-      dissapointed: 42,
-      angry: 13,
-      cautious: 14,
-      doubtful: 29,
-      happy: 36
+    specificHowManyWere: {
+      dissapointed: 0,
+      angry: 0,
+      cautious: 33.33,
+      doubtful: 33.33,
+      happy: 33.33
+    },
+  },
+  twitter: {
+    overallHowManyWere: {
+      positive: 50,
+      negative: 50
+    },
+    specificHowManyWere: {
+      dissapointed: 0,
+      angry: 0,
+      cautious: 33.33,
+      doubtful: 33.33,
+      happy: 33.33
+    },
+  },
+  reddit: {
+    overallHowManyWere: {
+      positive: 73,
+      negative: 23
+    },
+    specificHowManyWere: {
+      dissapointed: 0,
+      angry: 0,
+      cautious: 33.33,
+      doubtful: 33.33,
+      happy: 33.33
     }
   }
 }
@@ -39,7 +54,7 @@ let data = {
 
 class App extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       searchSubmit: false,
@@ -48,13 +63,14 @@ class App extends Component {
   }
 
   fetchPosts = async (query) => {
-    const response = await (await fetch(`/results/${query}`)).json()
+    const response = await(await fetch(`/results/${query}`)).json()
     console.log(response)
-    this.setState( { statistics: response }  )
+    this.setState({statistics: response})
+
   }
 
   searchSubmission = async (query) => {
-    this.setState( { searchSubmit :true, currentQuery: query } )
+    this.setState({searchSubmit: true, currentQuery: query})
     console.log(query);
     console.log(this.state);
     // let posts = await this.fetchPosts(query)
