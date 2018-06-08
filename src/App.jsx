@@ -57,7 +57,7 @@ class App extends Component {
     this.setState( { searchSubmit :true, currentQuery: query } )
     console.log(query);
     console.log(this.state);
-    let posts = await this.fetchPosts(query)
+    // let posts = await this.fetchPosts(query)
   }
 
   render() {
