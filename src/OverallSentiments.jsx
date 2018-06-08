@@ -10,7 +10,7 @@ import {
 import {Grid, Row, Col} from 'react-flexbox-grid';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor'
 
-configureAnchors({offset: -100, scrollDuration: 1000})
+configureAnchors({offset: -2000, scrollDuration: 1000})
 
 
 class OverallSentiment extends Component {
@@ -165,9 +165,9 @@ class OverallSentiment extends Component {
 
     return (<div className="Card">
 
-      <Grid fluid="fluid">
+      <Grid fluid>
       {/*THIS IS THE BUTTON THAT TRIGGERS THE SCROLL*/}
-        <p className="emotionP"><a href="#emotion"><i class="fas fa-angle-double-down"></i></a></p>
+        <p className="emotionP"><a href="#emotion"><i className="fas fa-angle-double-down"></i></a></p>
       {/*THIS IS THE BUTTON THAT TRIGGERS THE SCROLL*/}
         <ScrollableAnchor id={'emotion'}>
           <div className='cardHeader'>

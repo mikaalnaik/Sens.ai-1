@@ -87,7 +87,7 @@ input[type="submit"]:hover {
   float: none;
   text-align: center;
   font-size: 1.4em;
-  margin: 1em 2em;
+  /* margin: 1em 2em; */
 }
 
 
@@ -105,7 +105,7 @@ input[type="submit"]:hover {
 
 .jumbo {
   margin: 2.5em;
-  margin-top: 5.5em;
+  /* margin-top: 5.5em; */
   font-family: 'Libre Baskerville', serif;
   text-align: center;
   font-size: 3em;
