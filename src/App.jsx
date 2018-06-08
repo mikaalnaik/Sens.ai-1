@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import NavBar from './navbar.js'
+import NavBar from  './navbar.js'
 import Search from './search.jsx'
 import OverallSentiment from './OverallSentiments'
 import Jumbotron from './Jumbotron'
 import Twitter from './Twitter'
 import Reddit from './Reddit'
 import Footer from './Footer'
+import {Grid, Row, Col} from 'react-flexbox-grid';
 import './App.css';
 
 let data = {
@@ -50,6 +51,7 @@ let data = {
   }
 }
 
+
 class App extends Component {
 
   constructor(props) {
@@ -75,43 +77,50 @@ class App extends Component {
   }
 
   render() {
-    if (!this.state.searchSubmit) {
-      return (<div>
-        <NavBar/>
-        <Jumbotron/>
+    if(!this.state.searchSubmit){
+      return (
         <div>
-          <Search query={this.searchSubmission}/>
+          <NavBar/>
+          <Grid fluid>
+            <Row>
+              <Col xs={12} sm={12} md={12} lg={12}>
+                <Jumbotron/>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} sm={12} md={12} lg={12}>
+                <div> <Search query={this.searchSubmission}/> </div>
+              </Col>
+            </Row>
+          </Grid>
         </div>
-      </div>)
-    } else if (!this.state.statistics.all.overallHowManyWere.positive) {
-      return (<div>
-        <NavBar/>
-        <div>
-          <Jumbotron/>
-        </div>
-        <div>
-          <Search query={this.searchSubmission}/>
-        </div>
-
-        <div className='validity'>
-          Please enter valid query.
-        </div>
-      </div>);
+          )
     } else {
-      return (<div>
+    return (
+      <div>
         <NavBar/>
-        <div>
-          <Jumbotron/>
-        </div>
-        <div>
-          <Search query={this.searchSubmission}/>
-        </div>
+        <Grid fluid>
+          <Row>
+            <Col xs={12} sm={12} md={12} lg={12}>
+              <Jumbotron/>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} sm={12} md={12} lg={12}>
+              <div> <Search query={this.searchSubmission}/> </div>
+            </Col>
+          </Row>
+        </Grid>
 
-        <OverallSentiment searched={this.state.searchSubmit} chartData={this.state.statistics}/>
-        <Reddit chartData={this.state.statistics}/>
+        <OverallSentiment
+          searched={this.state.searchSubmit}
+          chartData ={this.state.statistics}
+        />
+        <Reddit chartData={this.state.statistics} />
         <Twitter chartData={this.state.statistics}/>
         <Footer/>
-      </div>);
+      </div>
+    );
     }
   }
 }

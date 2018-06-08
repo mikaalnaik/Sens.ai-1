@@ -74,7 +74,6 @@ input[type="submit"]:hover {
   opacity: 0.8;
 }
 
-
 /* Line Chart Graph */
 .Card{
   margin: 0 2em 0 2em;
@@ -139,7 +138,7 @@ input[type="submit"]:hover {
   margin-top: 0;
 }
 
-.fa-angle-double-down {
+.fa-angle-down {
   color: #8e99a7;
 }
 
@@ -147,3 +146,7 @@ input[type="submit"]:hover {
   animation: fadeIn .5s ease-in 1 forwards;
   text-align: center;
   font-size: 2em;
+
+.arrow {
+  color: #8e99a7;
+}
