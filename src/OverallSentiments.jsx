@@ -92,6 +92,7 @@ class OverallSentiment extends Component {
             gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
             gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
 
+
       return {
         labels: [
            '6 Days Ago', '5 Days Ago', '4 Days Ago', '3 Days Ago', '2 Days Ago', 'Yesterday', 'Today'

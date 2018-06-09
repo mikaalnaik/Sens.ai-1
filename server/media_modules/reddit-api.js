@@ -10,7 +10,7 @@ async function fetchRedditPosts(query) {
     {
       platform: 'Reddit',
       user: data.author,
-      Posts: data.body,
+      content: data.body,
       source: data.permalink,
       created_at: data.created_utc
     })
