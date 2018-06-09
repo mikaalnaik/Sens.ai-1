@@ -25,7 +25,7 @@ let data = {
   },
   twitter: {
     overallHowManyWere: {
-      positive: 50,
+      positive: NaN,
       negative: 50
     },
     specificHowManyWere: {
@@ -90,6 +90,25 @@ class App extends Component {
           </Grid>
         </div>
           )
+    } else if (!this.state.statistics.reddit.overallHowManyWere.positive || !this.state.statistics.twitter.overallHowManyWere.positive) {
+    return (
+      <div>
+        <NavBar/>
+        <Grid fluid>
+          <Row>
+            <Col xs={12} sm={12} md={12} lg={12}>
+              <Jumbotron/>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} sm={12} md={12} lg={12}>
+              <div> <Search query={this.searchSubmission}/> </div>
+            </Col>
+          </Row>
+        </Grid>
+        Please resubmit your query.
+      </div>
+    );
     } else {
     return (
       <div>
