@@ -19,6 +19,7 @@
     "react-burger-menu": "^2.5.0",
     "react-chartjs-2": "^2.7.2",
     "react-dom": "^16.4.0",
+    "react-fade": "^1.1.1",
     "react-flexbox-grid": "^2.1.2",
     "react-scripts": "1.1.4",
     "react-scrollable-anchor": "^0.6.1",
@@ -26,7 +27,7 @@
     "watson-developer-cloud": "^3.4.5"
   },
   "scripts": {
-    "start": "PORT=8080 react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

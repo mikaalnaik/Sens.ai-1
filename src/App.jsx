@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import NavBar from  './navbar.js'
 import Search from './search.jsx'
+import Loading from './load.jsx'
 import OverallSentiment from './OverallSentiments'
 import Jumbotron from './Jumbotron'
 import Twitter from './Twitter'
@@ -23,8 +24,7 @@ class App extends Component {
 
   fetchPosts = async (query) => {
     const response = await(await fetch(`/results/${query}`)).json()
-    this.setState({statistics: response[0], pastResults: response[1] }) // most recent result is last in array
-    console.log("THIS IS THE STATE:", this.state)
+    this.setState({statistics: response, pastResults: {} }) // most recent result is last in array
   }
 
   searchSubmission = async (query) => {
@@ -34,8 +34,12 @@ class App extends Component {
     // console.log('Past Data:', data.pastData);
   }
 
+  resetSearchState = () => {
+    this.setState({searchSubmit: false})
+  }
+
   render() {
-    if(!this.state.statistics){
+    if(!this.state.statistics && !this.state.searchSubmit){
       return (
         <div>
           <NavBar/>
@@ -53,6 +57,12 @@ class App extends Component {
           </Grid>
         </div>
           )
+    } else if (!this.state.statistics && this.state.searchSubmit) {
+
+      return (
+        <Loading />
+      )
+
     } else if (!this.state.statistics.reddit.overallHowManyWere.positive || !this.state.statistics.twitter.overallHowManyWere.positive) {
     return (
       <div>
@@ -72,7 +82,7 @@ class App extends Component {
         Please resubmit your query.
       </div>
     );
-    } else {
+  } else if (this.state.statistics) {
     return (
       <div>
         <NavBar/>
