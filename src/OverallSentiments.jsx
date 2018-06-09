@@ -23,6 +23,10 @@ class OverallSentiment extends Component {
     let chartSet = this.props.chartData.all.overallHowManyWere
     let chartSpecific = this.props.chartData.all.specificHowManyWere
 
+    let pastChart = this.props.pastChartData
+    console.log(this.props.pastChartData);
+    // console.log(pastChart);
+
     const dataBar = (canvas) => {
       const ctx = canvas.getContext("2d")
       var gradientStroke = ctx.createRadialGradient(0, 0, 0, 0, 0, 300);
@@ -38,7 +42,7 @@ class OverallSentiment extends Component {
         ],
         datasets: [
           {
-            label: 'My First dataset',
+            label: pastChart.createdAt,
             backgroundColor: [
               gradientStroke, gradientStroke2
             ],
@@ -91,6 +95,7 @@ class OverallSentiment extends Component {
             var gradientStroke2 = ctx.createRadialGradient(0, 0,0,0, 0, 450);
             gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
             gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
+
 
       return {
         labels: [

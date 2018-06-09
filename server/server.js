@@ -43,11 +43,13 @@ app.get("/results/:searchname", async (req, res) => {
     console.log("Final results:")
     console.log("")
     console.log(stats)
+    res.send(stats)
 
 
     //  =============== ADDING stats (final result), id (searchword if doesn't exist) to database and response to client all results for id (searchword)
     let userid = 1;   //assuming user id 1 as required in database (for future enhancement)
     let searchid = -1;  //assuming initial value for searchid
+<<<<<<< HEAD
 
     searchResultModule.getSearchIdBySearchName(searchname)
     .then((rows) => {
@@ -143,5 +145,98 @@ app.get("/results/:searchname", async (req, res) => {
     .catch((err) => {
       console.log(err);
     });
+=======
+    //
+    // searchResultModule.getSearchIdBySearchName(searchname)
+    // .then((rows) => {
+    //   if(rows.length === 0) {   //to check if searchname does exist
+    //     res.send([stats])
+    //     //adding searchname if not exists
+    //     searchResultModule.addNewSearchName(searchname)
+    //     .then((rows) => {
+    //
+    //
+    //       //getting searchid for newly added search name
+    //       searchResultModule.getSearchIdBySearchName(searchname)
+    //       .then((rows) => {
+    //         searchid = rows[0].id;
+    //         //console.log("searchid: ", searchid, " userid: ", userid);
+    //
+    //
+    //
+    //         //adding searchresult to database
+    //         searchResultModule.addNewSearchResult(userid, searchid, stats)
+    //         .then((rows) => {
+    //           //console.log(rows);
+    //         })
+    //         .catch((err) => {
+    //           console.log(err);
+    //         });
+    //
+    //         //retreiving all results and send as response
+    //         searchResultModule.getSearchResultById(userid, searchid)
+    //         .then((rows) => {
+    //           //console.log(rows);
+    //
+    //             //extracting searchresult and store into array and send as response
+    //             let result = [];
+    //             for(let row of rows) {
+    //               result.push(row.searchresult);
+    //             }
+    //             result.push(stats);
+    //             //console.log(result);
+    //             // res.send(result);
+    //
+    //         })
+    //         .catch((err) => {
+    //           console.log(err);
+    //         })
+    //
+    //
+    //       }).catch((err) => { });
+    //
+    //
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    //
+    //   } else {
+    //
+    //     searchid = rows[0].id;
+    //
+    //     //adding searchresult to database
+    //     searchResultModule.addNewSearchResult(userid, searchid, stats)
+    //     .then((rows) => {
+    //       //console.log(rows);
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    //
+    //     //retreiving all results and send as response
+    //     searchResultModule.getSearchResultById(userid, searchid)
+    //     .then((rows) => {
+    //       //extracting searchresult and store into array and send as response
+    //       let result = [];
+    //       let pastResults = [];
+    //       result.push(stats);
+    //       for(let row of rows) {
+    //         pastResults.push(row.searchresult);
+    //       }
+    //       result.push(pastResults)
+    //       console.log(`There are ${pastResults.length} past results.`)
+    //       res.send(result);
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     })
+    //
+    //   }
+    // })
+    // .catch((err) => {
+    //   console.log(err);
+    // });
+>>>>>>> 92d54acef9c7646c0dde434f55c486591f498401
 
 });

@@ -22,6 +22,7 @@ async function computeData(posts) {
     }
   }
 
+
   let overallSentiments = await getOverallSentiments(analyzedPosts)
   let specificSentiments = await getSpecificSentiments(analyzedPosts)
   let timeCreated = moment().format('ll')
