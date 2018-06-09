@@ -13,7 +13,7 @@ let data = {
   all: {
     overallHowManyWere: {
       positive: 23,
-      negative: NaN
+      negative: 84
     },
     specificHowManyWere: {
       dissapointed: 0,
@@ -57,27 +57,34 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchSubmit: false,
-      statistics: data
+      searchSubmit: false
     }
   }
 
   fetchPosts = async (query) => {
-    const response = await(await fetch(`/results/${query}`)).json()
-    console.log(response)
-    this.setState({statistics: response})
+    // const response = await(await fetch(`/results/${query}`)).json()
+    // console.log(response)
+    // this.setState({statistics: response, })
+    // Testing on data submission logic
+    setTimeout(()=> this.setState({statistics: data}), 3000)
+    // this.setState({statistics: data})
 
   }
 
   searchSubmission = async (query) => {
-    this.setState({searchSubmit: true, currentQuery: query})
+    this.setState({searchSubmit: true, currentQuery: query, statistics: false})
     console.log(query);
     console.log(this.state);
+<<<<<<< HEAD
     let posts = await this.fetchPosts(query)
+=======
+    let posts = this.fetchPosts()
+    // let posts = await this.fetchPosts(query)
+>>>>>>> datalogic
   }
 
   render() {
-    if(!this.state.searchSubmit){
+    if(!this.state.statistics){
       return (
         <div>
           <NavBar/>

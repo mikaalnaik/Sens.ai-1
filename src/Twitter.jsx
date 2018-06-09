@@ -104,7 +104,7 @@ class Twitter extends Component {
            },
            pointBorderColor: 'white',
            backgroundColor: gradientStroke2,
-           data: [40, 39, 10, 40, 39, 80, 40]
+           data: [40, 39, 10, 40, 39, 40]
           },{
            label: 'Twitter',
            lineWidth: 25,

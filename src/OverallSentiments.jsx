@@ -9,7 +9,7 @@ import {
 } from 'react-chartjs-2';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
-import Arrow from'./arrow.png';
+import Arrow from'./arrow2.png';
 
 configureAnchors({scrollDuration: 1000})
 
@@ -171,7 +171,7 @@ class OverallSentiment extends Component {
       {/*THIS IS THE BUTTON THAT TRIGGERS THE SCROLL*/}
         <p className="emotionP">
           <a href="#emotion">
-            <img className="arrow" src={Arrow} height="40" width="80"/>
+            <img className="arrow" src={Arrow} height="20"/>
           </a>
         </p>
       {/*THIS IS THE BUTTON THAT TRIGGERS THE SCROLL*/}
