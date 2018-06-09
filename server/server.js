@@ -9,20 +9,28 @@ const statsCalculator = require('./statistics/Statistics.js')
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+const dbroutes = require('./db-routes')(app);
+var usersModule = require("./modules/usersModule");
+var searchResultModule = require("./modules/searchResultModule");
+
+
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'))
   .listen(PORT, '0.0.0.0', 'localhost', () => console.log(`Listening on ${ PORT }`));
 
 
 // this route will respond with the analyzed posts from reddit and twitter
-app.get("/results/:id", async (req, res) => {
+app.get("/results/:searchname", async (req, res) => {
+
+    let searchname = req.params.searchname;
 
     console.log("*** Connected to React Client ***")
     console.log("")
     console.log("")
 
-    let redditPosts = await fetchRedditPosts(req.params.id)
-    let twitterPosts = await fetchTwitterPosts(req.params.id)
+    let redditPosts = await fetchRedditPosts(searchname)
+    let twitterPosts = await fetchTwitterPosts(searchname)
     let allPosts = redditPosts.concat(twitterPosts)
     allPosts = await Promise.all(allPosts)
 
@@ -33,10 +41,106 @@ app.get("/results/:id", async (req, res) => {
     let stats = await statsCalculator(allPosts)
 
     console.log("Final results:")
-    console.log("")
+    console.log("keyword: ", searchname);
     console.log("")
     console.log(stats)
-    
-    res.send(stats)
 
+
+    //  =============== ADDING stats (final result), id (searchword if doesn't exist) to database and response to client all results for id (searchword)
+    let userid = 1;   //assuming user id 1 as required in database (for future enhancement)
+    var searchid = -1;  //assuming initial value for searchid
+    searchResultModule.getSearchIdBySearchName(searchname)
+    .then((rows) => {
+      if(rows.length === 0) {   //to check if searchname does exist
+        //adding searchname if not exists
+        searchResultModule.addNewSearchName(searchname)
+        .then((rows) => {
+
+
+          //getting searchid for newly added search name
+          searchResultModule.getSearchIdBySearchName(searchname)
+          .then((rows) => {
+            searchid = rows[0].id;
+            //console.log("searchid: ", searchid, " userid: ", userid);
+
+
+
+            //adding searchresult to database
+            searchResultModule.addNewSearchResult(userid, searchid, stats)
+            .then((rows) => {
+              //console.log(rows);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+
+
+
+            //retreiving all results and send as response
+            searchResultModule.getSearchResultById(userid, searchid)
+            .then((rows) => {
+              //console.log(rows);
+
+                //extracting searchresult and store into array and send as response
+                let result = [];
+                for(let row of rows) {
+                  result.push(row.searchresult);
+                }
+                result.push(stats);
+                //console.log(result);
+                res.send(result);
+
+            })
+            .catch((err) => {
+              console.log(err);
+            })
+
+
+          }).catch((err) => { });
+
+
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      } else {
+        searchid = rows[0].id;
+        //console.log("searchid: ", searchid, " userid: ", userid);
+
+        //adding searchresult to database
+        searchResultModule.addNewSearchResult(userid, searchid, stats)
+        .then((rows) => {
+          //console.log(rows);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+        //retreiving all results and send as response
+        searchResultModule.getSearchResultById(userid, searchid)
+        .then((rows) => {
+          // console.log(rows);
+
+          //extracting searchresult and store into array and send as response
+          let result = [];
+          for(let row of rows) {
+            result.push(row.searchresult);
+          }
+          result.push(stats);
+          //console.log(result);
+          res.send(result);
+
+
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+    // res.send(stats)
 });

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "change-case": "^3.0.2",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
     "chart.js": "^2.7.2",
