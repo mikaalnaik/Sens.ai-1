@@ -1,6 +1,7 @@
 let getOverallSentiments = require('./Data_Processing/OverallSentiments')
 let getSpecificSentiments = require('./Data_Processing/SpecificSentiments')
 let postsAnalyzer = require('./AI_Modules/MasterAnalyzer')
+let moment = require('moment');
 
 async function computeData(posts) {
 
@@ -23,7 +24,7 @@ async function computeData(posts) {
 
   let overallSentiments = await getOverallSentiments(analyzedPosts)
   let specificSentiments = await getSpecificSentiments(analyzedPosts)
-
+  let timeCreated = moment().format('ll')
   let stats = {
     all: {
       overallHowManyWere: await getOverallSentiments(analyzedPosts),
@@ -38,7 +39,8 @@ async function computeData(posts) {
     reddit: {
       overallHowManyWere: await getOverallSentiments(redditPosts),
       specificHowManyWere: await getOverallSentiments(redditPosts)
-    }
+    },
+    createdAt : timeCreated
   }
 
   return stats
