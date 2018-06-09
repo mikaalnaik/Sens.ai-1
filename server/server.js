@@ -12,13 +12,12 @@ const app = express();
 const dbroutes = require('./db-routes')(app);
 var usersModule = require("./modules/usersModule");
 var searchResultModule = require("./modules/searchResultModule");
-
+var helperModule = require("./modules/helperModule");
 
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'))
   .listen(PORT, '0.0.0.0', 'localhost', () => console.log(`Listening on ${ PORT }`));
-
 
 // this route will respond with the analyzed posts from reddit and twitter
 app.get("/results/:searchname", async (req, res) => {
@@ -65,16 +64,17 @@ app.get("/results/:searchname", async (req, res) => {
             searchid = rows[0].id;
             //console.log("searchid: ", searchid, " userid: ", userid);
 
-
-
-            //adding searchresult to database
-            searchResultModule.addNewSearchResult(userid, searchid, stats)
-            .then((rows) => {
-              //console.log(rows);
-            })
-            .catch((err) => {
-              console.log(err);
-            });
+            console.log(helperModule.doSearchResultToBeStored(stats));
+            if(helperModule.doSearchResultToBeStored(stats)) {
+              //adding searchresult to database
+              searchResultModule.addNewSearchResult(userid, searchid, stats)
+              .then((rows) => {
+                //console.log(rows);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+            }
 
             //retreiving all results and send as response
             searchResultModule.getSearchResultById(userid, searchid)
@@ -108,14 +108,17 @@ app.get("/results/:searchname", async (req, res) => {
 
         searchid = rows[0].id;
 
-        //adding searchresult to database
-        searchResultModule.addNewSearchResult(userid, searchid, stats)
-        .then((rows) => {
-          //console.log(rows);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+        console.log(helperModule.doSearchResultToBeStored(stats));
+        if(helperModule.doSearchResultToBeStored(stats)) {
+          //adding searchresult to database
+          searchResultModule.addNewSearchResult(userid, searchid, stats)
+          .then((rows) => {
+            //console.log(rows);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        }
 
         //retreiving all results and send as response
         searchResultModule.getSearchResultById(userid, searchid)
