@@ -51,7 +51,6 @@ let data = {
   }
 }
 
-
 class App extends Component {
 
   constructor(props) {
@@ -62,25 +61,14 @@ class App extends Component {
   }
 
   fetchPosts = async (query) => {
-    // const response = await(await fetch(`/results/${query}`)).json()
-    // console.log(response)
-    // this.setState({statistics: response, })
-    // Testing on data submission logic
-    setTimeout(()=> this.setState({statistics: data}), 3000)
-    // this.setState({statistics: data})
-
+    const response = await(await fetch(`/results/${query}`)).json()
+    this.setState({statistics: response[0], pastResults: response[1] }) // most recent result is last in array
+    console.log("THIS IS THE STATE:", this.state)
   }
 
   searchSubmission = async (query) => {
     this.setState({searchSubmit: true, currentQuery: query, statistics: false})
-    console.log(query);
-    console.log(this.state);
-<<<<<<< HEAD
     let posts = await this.fetchPosts(query)
-=======
-    let posts = this.fetchPosts()
-    // let posts = await this.fetchPosts(query)
->>>>>>> datalogic
   }
 
   render() {

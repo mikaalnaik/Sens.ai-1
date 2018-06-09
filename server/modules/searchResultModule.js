@@ -85,3 +85,14 @@ module.exports = {
   addNewSearchName: addNewSearchName,
   addNewSearchResult: addNewSearchResult
 }
+
+//retreiving all results and send as response
+// searchResultModule.getSearchResultById(userid, searchid)
+// .then((rows) => {
+//
+//     //extracting searchresult and store into array and send as response
+//     let result = [];
+//     for(let row of rows) {
+//       result.push(row.searchresult);
+//     }
+//     result.push(stats);
