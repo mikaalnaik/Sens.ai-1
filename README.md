@@ -31,6 +31,11 @@ Traders, Manufacturers, Customers, Service Industry, Individuals
 
 ### User Stories
 
+- when
+- when
+- When
+
+
 ### Wireframes
 
 
@@ -62,11 +67,6 @@ PostgreSQL, often simply Postgres, is an object-relational database management s
 Reference: https://en.wikipedia.org/wiki/PostgreSQL
 
 ## Project Setup
-
-### Git Repo Setup
-
-
-### Project scaffold
 
 - Clone this project from git Repo (Write following commands on vagrant)
 
@@ -197,6 +197,42 @@ Knex Seed Files:
 ### Entity Relationship Diagram (ERD)
 
 ![ERD - Brand Analysis Platform](./public/docs/ERD.png)
+
+
+## Run application
+
+Open two terminal windows with vagrant promps. One for Server App (Node JS) and other for client app (REACT).
+
+### Start Server Application (Node JS)
+
+```
+cd Sens.ai/server
+
+node server.js
+
+![ERD - Brand Analysis Platform](./public/docs/start_server.png)
+```
+
+
+
+### Start Client Application (REACT)
+
+```
+cd Sens.ai
+
+npm start
+```
+
+
+# Final Product Screenshots
+
+
+
+
+
+
+
+
 
 ## Project Workflow
 
