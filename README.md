@@ -205,13 +205,14 @@ Open two terminal windows with vagrant promps. One for Server App (Node JS) and 
 
 ### Start Server Application (Node JS)
 
+Write following commands in the terminal window.
+
 ```
 cd Sens.ai/server
 
 node server.js
 ```
 ![Start Server Application](./public/docs/start_server.png)
-
 
 ### Start Client Application (REACT)
 
@@ -221,6 +222,10 @@ cd Sens.ai
 npm start
 ```
 ![Start Client Application](./public/docs/start_client.png)
+
+Open a web browser (for example: Google Chrome), and type http://localhost:3000 in the addressbar to open client app in the browser.
+
+![Start Client Application in Web Browser](./public/docs/start_client_browser.png)
 
 # Final Product Screenshots
 
