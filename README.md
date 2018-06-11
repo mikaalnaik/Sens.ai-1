@@ -1,6 +1,4 @@
-# Project Title
-
-## Sens.ai - Brand Analysis Platform
+# Sens.ai - Brand Analysis Platform
 
 ## Presenting a flip side of the social media web platforms
 
@@ -8,20 +6,32 @@
 - Twitter
 - Reddit
 
-## Project Planning
+## About Project
 
+This is a final project for the web development bootcamp at Lighthouse Labs, Toronto to showcase the skills learned.
 
+### Project Description
 
-## Project Description
+Sens.ai is a single page web app (SPA) that performs the intent analysis and sentiment analysis for the keyword string entered by the user. Internally it fetches user reviews and comments relevant to the keyword from the back of the social media sites. The intent analyzer identifies whether the review/comment is a complaint, a suggestion or a query. The Sentiment analyzer identifies the tone of the review/comment whether it is positive, negative, or neutral. The final outcome is the analysis report generated with detailed charts describing overall feedback for the collection of posts fetched from social media sites. These results are persisted in the database for future comparision.
 
-### Project Description - What problem your app solves
-### Target auidence - Your app will be useful to whom?
+### Target auidence
+
+The reviews for the product or service expressed by customers with this app helps determine whether to buy, quit, sell, or recommend your product. This app is developed targeting all business entities. Few examples here...
+
+Traders, Manufacturers, Customers, Service Industry, Individuals
+
 ### Team Members
 
+- Sebastian Valiente (https://github.com/sebastianvaliente)
+- Mikaal Naik (https://github.com/mikaalnaik)
+- Cem Hekimoglu (https://github.com/cemhekimoglu)
+- Hemantkumar Panchal (https://github.com/panchalhemant2001)
 
-## User Stories
+## Project Planning
 
-## Wireframes
+### User Stories
+
+### Wireframes
 
 
 ## Stack Choices
