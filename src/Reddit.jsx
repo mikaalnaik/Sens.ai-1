@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Pie, Line, Bar, Polar, Doughnut, Radar} from 'react-chartjs-2';
+import {Pie, Line, HorizontalBar, Polar, Doughnut, Radar} from 'react-chartjs-2';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor'
 import Arrow from'./arrow.png';
@@ -14,27 +14,120 @@ class Reddit extends Component {
   render() {
     let chartSet = this.props.chartData.reddit
     let chartSpecific = this.props.chartData.reddit.specificHowManyWere
+    let pastChart = this.props.pastChartData
+
+    let chartLabelGenerator = () => {
+      let labels = []
+      for(var i = 0; i < pastChart.length; i++){
+        labels.push(pastChart[i].createdAt)
+      }
+      return labels
+    }
+
+    let redditLinePositive = () => {
+      let positiveData = []
+      for (var i = 0; i < pastChart.length; i++) {
+        positiveData.push(pastChart[i].reddit.overallHowManyWere.positive)
+      }
+      return positiveData
+    }
+
+    let redditLineNegative = () => {
+      let negativeData = []
+      for (var i = 0; i < pastChart.length; i++) {
+        negativeData.push(pastChart[i].reddit.overallHowManyWere.negative)
+      }
+      return negativeData
+    }
+
+
+
+
+    let redditBarDisappointed = () => {
+      let dissapointedData = []
+      for (var i = 0; i < pastChart.length; i++) {
+        dissapointedData.push(pastChart[i].reddit.specificHowManyWere.dissapointed)
+      }
+      return dissapointedData
+    }
+    let redditBarAngry = () => {
+      let data = []
+      for (var i = 0; i < pastChart.length; i++) {
+        data.push(pastChart[i].reddit.specificHowManyWere.angry)
+      }
+      return data
+    }
+    let redditBarCautious = () => {
+      let data = []
+      for (var i = 0; i < pastChart.length; i++) {
+        data.push(pastChart[i].reddit.specificHowManyWere.cautious)
+      }
+      return data
+    }
+    let redditBarDoubtful = () => {
+      let data = []
+      for (var i = 0; i < pastChart.length; i++) {
+        data.push(pastChart[i].reddit.specificHowManyWere.doubtful)
+      }
+      return data
+    }
+    let redditBarHappy = () => {
+      let data = []
+      for (var i = 0; i < pastChart.length; i++) {
+        data.push(pastChart[i].reddit.specificHowManyWere.happy)
+      }
+      return data
+    }
 
     const dataBar = (canvas) => {
       const ctx = canvas.getContext("2d")
-      var gradientStroke = ctx.createRadialGradient(0, 0,0,0, 0, 300);
+      let gradientStroke = ctx.createRadialGradient(0, 0, 0, 0, 0, 600);
       gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
       gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
-      var gradientStroke2 = ctx.createRadialGradient(0, 0,0,0, 0, 450);
+
+      let gradientStroke2 = ctx.createRadialGradient(0, 0, 0, 0, 0, 600);
       gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
       gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
 
+      let gradientStroke3 = ctx.createRadialGradient(0, 0, 0, 0, 0, 600);
+      gradientStroke3.addColorStop(0.5, 'rgb(43, 192, 228, 0.25)');
+      gradientStroke3.addColorStop(1, 'rgb(234, 236, 198, 1)');
+
+      let gradientStroke4 = ctx.createRadialGradient(0, 0, 0, 0, 0, 600);
+      gradientStroke4.addColorStop(0.5, 'rgb(255, 128, 8, 0.25)');
+      gradientStroke4.addColorStop(1, 'rgb(255, 200, 55, 1)');
+
+      let gradientStroke5 = ctx.createRadialGradient(0, 0, 0, 0, 0, 600);
+      gradientStroke2.addColorStop(0.5, 'rgb(240, 82, 173, 0.25)');
+      gradientStroke2.addColorStop(1, 'rgb(176, 84, 96, 1)');
       return {
-        labels: ['Reddit', 'Twitter'],
+        labels: chartLabelGenerator(),
         datasets: [
           {
-            label: 'My First dataset',
-            backgroundColor:[ gradientStroke,gradientStroke2],
-            borderColor: '#3e3e3e',
+            label: 'Disapointed',
+            backgroundColor: gradientStroke2,
             borderWidth: 0,
-            hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-            hoverBorderColor: 'rgba(255,99,132,1)',
-            data: [65, 59, 0]
+            data: redditBarDisappointed()
+          }, {
+            label: 'Angry',
+            backgroundColor: gradientStroke,
+            borderWidth: 0,
+            data: redditBarAngry()
+          }, {
+            label: 'Cautious',
+            backgroundColor: gradientStroke3,
+            borderWidth: 0,
+            data: redditBarCautious()
+          }, {
+            label: 'Doubtful',
+            backgroundColor: gradientStroke4,
+            borderWidth: 0,
+            data: redditBarDoubtful()
+          }, {
+            label: 'Happy',
+            backgroundColor: gradientStroke5,
+            borderWidth: 0,
+            data: redditBarHappy()
           }
         ]
       }
@@ -43,7 +136,7 @@ class Reddit extends Component {
     const dataPie = (canvas) => {
 
       const ctx = canvas.getContext("2d")
-      var gradientStroke = ctx.createRadialGradient(0, 0,0,0, 0, 300);
+      var gradientStroke = ctx.createRadialGradient(0, 0,0,0, 0, 500);
       gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
       gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
       var gradientStroke2 = ctx.createRadialGradient(0, 0,0,0, 0, 450);
@@ -82,7 +175,7 @@ class Reddit extends Component {
       gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
 
       return {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: chartLabelGenerator(),
         datasets: [
           {
            label: 'Reddit',
@@ -94,7 +187,7 @@ class Reddit extends Component {
            },
            pointBorderColor: 'white',
            backgroundColor: gradientStroke2,
-           data: [40, 39, 10, 40, 39, 80, 40]
+           data: redditLinePositive()
           },{
            label: 'Twitter',
            lineWidth: 25,
@@ -106,7 +199,7 @@ class Reddit extends Component {
              display: false
            },
            backgroundColor: gradientStroke,
-           data: [60, 55, 32, 10, 2, 12, 53]
+           data: redditLineNegative()
           }
         ]
       }
@@ -211,7 +304,7 @@ class Reddit extends Component {
             <Row>
               <Col xs={12} sm={12} md={12} lg={6}>
                 <div className="singleChart">
-                  <Bar data={dataBar}   options={
+                  <HorizontalBar data={dataBar}   options={
                           {
                             legend:{
                           position:'bottom'
