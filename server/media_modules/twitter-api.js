@@ -13,7 +13,7 @@ const fetchTwitterPosts = function(query) {
 
   return new Promise (function(resolve, reject) {
 
-    twitterApiKey.get('search/tweets', { q: `${query} -filter:retweets`, lang: "en", count: 10}, function(err, data, response) {
+    twitterApiKey.get('search/tweets', { q: `${query} -filter:retweets`, lang: "en", count: 5}, function(err, data, response) {
       tweetdata = data.statuses.map(status => ({
         platform: "Twitter",
         user: status.user.name,

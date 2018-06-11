@@ -1,0 +1,10 @@
+.load {
+  size: 45px;
+  position:fixed;
+  top: 50%;
+  left: 60%;
+  width:50em;
+  height:18em;
+  margin-top: -9em; /*set to a negative number 1/2 of your height*/
+  margin-left: -15em;
+}

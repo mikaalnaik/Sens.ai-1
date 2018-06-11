@@ -19,6 +19,11 @@ class OverallSentiment extends Component {
     super(props);
   }
 
+  componentWillMount() {
+    this.props.shouldNotScroll()
+    this.props.visibility()
+  }
+
   render() {
     let chartSet = this.props.chartData.all.overallHowManyWere
     let chartSpecific = this.props.chartData.all.specificHowManyWere
@@ -191,6 +196,7 @@ class OverallSentiment extends Component {
     return (<div className="Card">
 
       <Grid fluid>
+
       {/*THIS IS THE BUTTON THAT TRIGGERS THE SCROLL*/}
         <p className="emotionP">
           <a href="#emotion">
@@ -320,6 +326,7 @@ class OverallSentiment extends Component {
             </div>
           </Col>
         </Row>
+
       </Grid>
     </div>);
   }
