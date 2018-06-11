@@ -49,7 +49,6 @@ app.get("/results/:searchname", async (req, res) => {
     //  =============== ADDING stats (final result), id (searchword if doesn't exist) to database and response to client all results for id (searchword)
     let userid = 1;   //assuming user id 1 as required in database (for future enhancement)
     let searchid = -1;  //assuming initial value for searchid
-<<<<<<< HEAD
 
     searchResultModule.getSearchIdBySearchName(searchname)
     .then((rows) => {
@@ -145,7 +144,7 @@ app.get("/results/:searchname", async (req, res) => {
     .catch((err) => {
       console.log(err);
     });
-=======
+
     //
     // searchResultModule.getSearchIdBySearchName(searchname)
     // .then((rows) => {
@@ -237,6 +236,6 @@ app.get("/results/:searchname", async (req, res) => {
     // .catch((err) => {
     //   console.log(err);
     // });
->>>>>>> 92d54acef9c7646c0dde434f55c486591f498401
+
 
 });
