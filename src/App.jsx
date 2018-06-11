@@ -31,7 +31,7 @@ class App extends Component {
     this.setState({searchSubmit: true, currentQuery: query, statistics: false})
     // let posts = await this.fetchPosts(query)
     this.setState({statistics:data.data, pastStatistics: data.pastData})
-    // console.log('Past Data:', data.pastData);
+    // console.log('Pa  st Data:', data.pastData);
   }
 
   render() {
