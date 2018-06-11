@@ -209,10 +209,8 @@ Open two terminal windows with vagrant promps. One for Server App (Node JS) and 
 cd Sens.ai/server
 
 node server.js
-
-![ERD - Brand Analysis Platform](./public/docs/start_server.png)
 ```
-
+![Start Server Application](./public/docs/start_server.png)
 
 
 ### Start Client Application (REACT)
