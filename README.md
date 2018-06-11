@@ -38,13 +38,18 @@ Since component logic is written in JavaScript instead of templates, you can eas
 
 Reference: https://reactjs.org/
 
-### Back End
+### Back End (node.js)
 
-- node.js
+Node.js is an open-source, cross-platform JavaScript run-time environment that executes JavaScript code server-side.
 
-### Database
+Reference: https://en.wikipedia.org/wiki/Node.js
 
-- postgress SQL
+### Database (PostgreSQL)
+
+PostgreSQL, often simply Postgres, is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards compliance. As a database server, its primary functions are to store data securely and return that data in response to requests from other software applications. It can handle workloads ranging from small single-machine applications to large Internet-facing applications (or for data warehousing) with many concurrent users; on macOS Server, PostgreSQL is the default database;[11][12][13] and it is also available for Microsoft Windows and Linux (supplied in most distributions).
+
+
+Reference: https://en.wikipedia.org/wiki/PostgreSQL
 
 ## Project Setup
 
