@@ -1,3 +1,15 @@
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1s linear;
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 3s, opacity .5s linear;
+}
+
 html {
   background-color: #212733;
   font-family: 'Roboto', sans-serif;
@@ -150,3 +162,9 @@ input[type="submit"]:hover {
 .arrow {
   color: #8e99a7;
 }
+
+/* .landing-page {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+} */

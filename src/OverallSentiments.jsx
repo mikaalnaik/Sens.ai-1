@@ -19,6 +19,11 @@ class OverallSentiment extends Component {
     super(props);
   }
 
+  componentWillMount() {
+    this.props.shouldNotScroll()
+    this.props.visibility()
+  }
+
   render() {
     let chartSet = this.props.chartData.all.overallHowManyWere
     let chartSpecific = this.props.chartData.all.specificHowManyWere
@@ -26,6 +31,30 @@ class OverallSentiment extends Component {
     let pastChart = this.props.pastChartData
     console.log(this.props.pastChartData);
     // console.log(pastChart);
+
+    let chartLabelGenerator = () => {
+      let labels = []
+      for(var i = 0; i < pastChart.length; i++){
+        labels.push(pastChart[i].createdAt)
+      }
+      return labels
+    }
+
+    let overallLinePositive = () => {
+      let positiveData = []
+      for (var i = 0; i < pastChart.length; i++) {
+        positiveData.push(pastChart[i].all.overallHowManyWere.positive)
+      }
+      return positiveData
+    }
+
+    let overallLineNegative = () => {
+      let negativeData = []
+      for (var i = 0; i < pastChart.length; i++) {
+        negativeData.push(pastChart[i].all.overallHowManyWere.negative)
+      }
+      return negativeData
+    }
 
     const dataBar = (canvas) => {
       const ctx = canvas.getContext("2d")
@@ -72,12 +101,8 @@ class OverallSentiment extends Component {
         ],
         datasets: [
           {
-            data: [
-              chartSet.positive, chartSet.negative
-            ],
-            backgroundColor: [
-              gradientStroke, gradientStroke2
-            ],
+            data: [chartSet.positive, chartSet.negative],
+            backgroundColor: [gradientStroke, gradientStroke2],
             borderWidth: 0,
             hoverBackgroundColor: ['#78909C', '#B0BEC5']
           }
@@ -98,9 +123,7 @@ class OverallSentiment extends Component {
 
 
       return {
-        labels: [
-           '6 Days Ago', '5 Days Ago', '4 Days Ago', '3 Days Ago', '2 Days Ago', 'Yesterday', 'Today'
-        ],
+        labels: chartLabelGenerator(),
         datasets: [
           {
             label: 'Angry',
@@ -112,9 +135,9 @@ class OverallSentiment extends Component {
             },
             pointBorderColor: 'white',
             backgroundColor: gradientStroke2,
-            data: [40, 19, 10,29,32,21,30]
+            data: overallLineNegative()
           }, {
-            label: 'Twitter',
+            label: 'Positive',
             lineWidth: 25,
             borderColor: '',
             pointBackgroundColor: 'white',
@@ -124,7 +147,7 @@ class OverallSentiment extends Component {
               display: false
             },
             backgroundColor: gradientStroke,
-            data: [60, 15, 32,34,74,23,12]
+            data: overallLinePositive()
           }
         ]
       }
@@ -173,6 +196,7 @@ class OverallSentiment extends Component {
     return (<div className="Card">
 
       <Grid fluid>
+
       {/*THIS IS THE BUTTON THAT TRIGGERS THE SCROLL*/}
         <p className="emotionP">
           <a href="#emotion">
@@ -196,7 +220,9 @@ class OverallSentiment extends Component {
                     display: true,
                     text: 'Negative - Positive Responses',
                     fontColor: '#8e99a7'
-                  },
+                  },animation: {
+                    duration: 4000,
+                  }
                 }}/>
             </div>
           </Col>
@@ -206,6 +232,8 @@ class OverallSentiment extends Component {
               <Line data={dataLine} options={{
                   legend: {
                     position: 'bottom'
+                  },animation: {
+                    duration: 4000,
                   },
                   scales: {
                     xAxes: [
@@ -234,7 +262,10 @@ class OverallSentiment extends Component {
               <Bar data={dataBar} options={{
                   legend: {
                     position: 'bottom'
-                  },title: {
+                  },animation: {
+                    duration: 4000,
+                  },
+                  title: {
                     display: true,
                     text: 'Something Else',
                     fontColor: '#8e99a7'
@@ -264,6 +295,8 @@ class OverallSentiment extends Component {
               <Polar data={dataRadar} options={{
                   legend: {
                     position: 'bottom'
+                  },animation: {
+                    duration: 4000,
                   },
                   title: {
                     display: true,
@@ -293,6 +326,7 @@ class OverallSentiment extends Component {
             </div>
           </Col>
         </Row>
+
       </Grid>
     </div>);
   }
