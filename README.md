@@ -167,7 +167,7 @@ Knex Migration Files:
 
 ## Entity Relationship Diagram (ERD)
 
-![ERD - Brand Analysis Platform](/docs/ERD.png)
+![ERD - Brand Analysis Platform](./public/docs/ERD.png)
 
 ### Project Workflow
 
