@@ -1,4 +1,6 @@
-### Sens.ai - Brand Analysis Platform
+# Project Title
+
+## Sens.ai - Brand Analysis Platform
 
 ## Presenting a flip side of the social media web platforms
 
@@ -6,50 +8,49 @@
 - Twitter
 - Reddit
 
-### Project Planning
+## Project Planning
 
 
 
 ## Project Description
 
-# Project Title
-# Project Description - What problem your app solves
-# Target auidence - Your app will be useful to whom?
-# Team Members
+### Project Description - What problem your app solves
+### Target auidence - Your app will be useful to whom?
+### Team Members
 
 
 ## User Stories
 
 ## Wireframes
 
-## Entity Relationship Diagram
 
 ## Stack Choices
 
-# Front End
-  react
-  react-dom
+### Front End
+- react and react-dom
 
-# Back End
+### Back End
 
-  node.js
+- node.js
 
-# Database
+### Database
 
-  postgress SQL
+- postgress SQL
 
-### Project Setup
+## Project Setup
 
-## Git Repo Setup
+### Git Repo Setup
 
 
-## Project scaffold
+### Project scaffold
 
-# Clone this project from git Repo (Write following commands on vagrant)
+- Clone this project from git Repo (Write following commands on vagrant)
 
+```
 git clone <git repo uri for this project> Sens.ai
+```
 
-# dependencies
+### dependencies
 
 - "bluebird": "^3.5.1",
 - "body-parser": "^1.18.3",
@@ -81,9 +82,10 @@ git clone <git repo uri for this project> Sens.ai
 - "watson-developer-cloud": "^3.4.5"
 
 
-# Install dependencies
+### Install dependencies
 
 - Write following commands on vagrant prompt
+
 ```
 cd Sens.ai
 npm install --save
@@ -92,7 +94,7 @@ npm install --save
 
 ## Database Setup
 
-# CREATING NEW DATABASE
+### CREATING NEW DATABASE
 
 - Install Postgress SQL driver and Knex migration tool (on vagrant prompt).
 
@@ -119,6 +121,9 @@ psql -U sensai
 ```
 \q
 ```
+
+### Database Migration
+
 - Run following KNEX commands to run database migrations.
 
 ```
@@ -145,7 +150,7 @@ Knex Migration Files:
 20180604203059_create_table_searchresults.js
 ```
 
-## Seed File
+### Database Seeding
 
 - Run following KNEX command to seed the sensai database
 
@@ -165,11 +170,11 @@ Knex Migration Files:
 3_seed_search_results.js
 ```
 
-## Entity Relationship Diagram (ERD)
+### Entity Relationship Diagram (ERD)
 
 ![ERD - Brand Analysis Platform](./public/docs/ERD.png)
 
-### Project Workflow
+## Project Workflow
 
 ## Project Communication
 
