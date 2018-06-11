@@ -36,9 +36,6 @@ Traders, Manufacturers, Customers, Service Industry, Individuals
 - When
 
 
-### Wireframes
-
-
 ## Stack Choices
 
 ### Front End (react and react-dom)
@@ -228,49 +225,3 @@ Open a web browser (for example: Google Chrome), and type http://localhost:3000 
 ![Start Client Application in Web Browser](./public/docs/start_client_browser.png)
 
 # Final Product Screenshots
-
-
-
-
-
-
-
-
-
-## Project Workflow
-
-## Project Communication
-
-- What has been accomplished
-- What will you be working on
-- What hardles are you facing
-
-## Project Workflow
-
-1. What are the project milestones: you need to create a list of the project milestones and specify what are the deadlines.
-
-2. Git workflow: establish rules about how you’re going to manage your Git workflow. You can discuss it with a mentor if needed.
-
-3. How to distribute teamwork: before distributing work, you might want to consider working together until you build the core of your app. Afterward, you need to think about how you will distribute the work among your team members.
-
-4. Coding styles: consider establishing some coding guidelines to ensure consistency between team members.
-
-
-### Project Development
-
-- Deadline: Week 9, Day 5
-
-### Project Deployment
-
-## Testing, bug fixing
-
-# Deadline: Demo day minus 2
-
-- Testing, testing, testing
-- Fixing bugs
-- Refactoring your code
-- Cleaning up your code
-
-### Project Presentation
-
-# Deadline: Demoday minus 1
