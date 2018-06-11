@@ -26,8 +26,17 @@
 
 ## Stack Choices
 
-### Front End
-- react and react-dom
+### Front End (react and react-dom)
+
+React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+
+Declarative views make your code more predictable and easier to debug.
+
+Build encapsulated components that manage their own state, then compose them to make complex UIs.
+
+Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep state out of the DOM.
+
+Reference: https://reactjs.org/
 
 ### Back End
 
@@ -163,7 +172,7 @@ knex seed:run
 ```
 Path: Sens.ai/server/db/migrations
 
-Knex Migration Files:
+Knex Seed Files:
 
 1_seed_users.js
 2_seed_search_words.js
