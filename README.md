@@ -220,7 +220,7 @@ cd Sens.ai
 
 npm start
 ```
-
+![Start Client Application](./public/docs/start_client.png)
 
 # Final Product Screenshots
 
