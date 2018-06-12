@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import {
-  Pie,
   Line,
   Bar,
   Polar,
-  Doughnut,
-  Radar
+  Doughnut
 } from 'react-chartjs-2';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 import ScrollableAnchor, { configureAnchors } from 'react-scrollable-anchor';
@@ -196,7 +194,7 @@ class OverallSentiment extends Component {
     };
 
     console.log(this.props.pastChartData);
-if(this.props.pastChartData.length > 0){
+
 
 
     return (<div className="Card">
@@ -335,80 +333,6 @@ if(this.props.pastChartData.length > 0){
 
       </Grid>
     </div>)
-  } else {
-    return (<div className="Card">
-
-      <Grid fluid>
-
-      {/*THIS IS THE BUTTON THAT TRIGGERS THE SCROLL*/}
-        <p className="emotionP">
-          <a href="#emotion">
-            <img className="arrow" src={Arrow} height="20"/>
-          </a>
-        </p>
-      {/*THIS IS THE BUTTON THAT TRIGGERS THE SCROLL*/}
-        <ScrollableAnchor id={'emotion'}>
-          <div className='cardHeader'>
-            Overall Emotional Sentiment {this.props.querySearched}
-          </div>
-        </ScrollableAnchor>
-
-        <Row>
-          <Col xs={12} sm={12} md={12} lg={6}>
-            <div className="singleChart">
-              <Doughnut data={dataPie} options={{
-                  legend: {
-                    position: 'bottom'
-                  },title: {
-                    display: true,
-                    text: 'Negative - Positive Responses',
-                    fontColor: '#8e99a7'
-                  },animation: {
-                    duration: 4000,
-                  }
-                }}/>
-            </div>
-          </Col>
-
-          <Col xs={12} sm={12} md={12} lg={6}>
-            <div className="singleChart">
-              <Polar data={dataRadar} options={{
-                  legend: {
-                    position: 'bottom'
-                  },animation: {
-                    duration: 4000,
-                  },
-                  title: {
-                    display: true,
-                    text: 'Specific Emotional Responses',
-                    fontColor: '#8e99a7'
-                  },
-                  scale: {
-                    display: false
-                  },
-                  scales: {
-                    xAxes: [
-                      {
-                        gridLines: {
-                          color: "rgba(0, 0, 0, 0)"
-                        }
-                      }
-                    ],
-                    yAxes: [
-                      {
-                        gridLines: {
-                          color: "rgba(0, 0, 0, 0)"
-                        }
-                      }
-                    ]
-                  }
-                }}/>
-            </div>
-          </Col>
-        </Row>
-      </Grid>
-    </div>)
-  };
   }
 }
 

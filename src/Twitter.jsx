@@ -255,7 +255,6 @@ console.log('Past Chart Twitter:' ,pastChart);
       };
     };
 
-if(this.props.pastChartData > 0){
 
 
     return (<div className="Card">
@@ -371,67 +370,7 @@ if(this.props.pastChartData > 0){
         </Row>
       </Grid>
     </div>)
-  } else {
-    return (<div className="Card">
 
-      <Grid fluid="fluid">
-
-        {/* THIS IS THE BUTTON THAT TRIGGERS THE SCROLL */}
-        <p className="redditTwitter">
-          <a href="#scrollTwitter">
-            <img className="arrow" src={Arrow} height="40" width="80"/>
-          </a>
-        </p>
-        {/* THIS IS THE BUTTON THAT TRIGGERS THE SCROLL */}
-        <ScrollableAnchor id={'scrollTwitter'}>
-          <div className='cardHeader'>
-            Analysis of Twitter
-          </div>
-        </ScrollableAnchor>
-
-        <Row>
-          <Col xs={12} sm={12} md={12} lg={6}>
-            <div className="singleChart">
-              <Doughnut data={dataPie} options={{
-                  legend: {
-                    position: 'bottom'
-                  }
-                }}/>
-            </div>
-          </Col>
-
-          <Col xs={12} sm={12} md={12} lg={6}>
-            <div className="singleChart">
-              <Polar data={dataRadar} options={{
-                  legend: {
-                    position: 'bottom'
-                  },
-                  scale: {
-                    display: false
-                  },
-                  scales: {
-                    xAxes: [
-                      {
-                        gridLines: {
-                          color: "rgba(0, 0, 0, 0)"
-                        }
-                      }
-                    ],
-                    yAxes: [
-                      {
-                        gridLines: {
-                          color: "rgba(0, 0, 0, 0)"
-                        }
-                      }
-                    ]
-                  }
-                }}/>
-            </div>
-          </Col>
-        </Row>
-      </Grid>
-    </div>)
-  };
   }
 }
 

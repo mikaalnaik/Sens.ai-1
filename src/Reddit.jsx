@@ -3,9 +3,7 @@ import {
   Pie,
   Line,
   HorizontalBar,
-  Polar,
-  Doughnut,
-  Radar
+  Polar
 } from 'react-chartjs-2';
 import {Grid, Row, Col} from 'react-flexbox-grid';
 import ScrollableAnchor, {configureAnchors} from 'react-scrollable-anchor'
@@ -248,7 +246,7 @@ class Reddit extends Component {
       };
     };
 
-if(this.props.pastChartData.length > 0){
+
 
     return (<div className="Card">
 
@@ -362,66 +360,7 @@ if(this.props.pastChartData.length > 0){
         </Row>
       </Grid>
     </div>)
-  } else{
-    return (<div className="Card">
 
-      <Grid fluid>
-        {/* THIS IS THE BUTTON THAT TRIGGERS THE SCROLL */}
-        <p className="redditTwitter">
-          <a href="#scrollReddit">
-            <img className="arrow" src={Arrow} height="40" width="80"/>
-          </a>
-        </p>
-        {/* THIS IS THE BUTTON THAT TRIGGERS THE SCROLL */}
-        <ScrollableAnchor id={'scrollReddit'}>
-          <div className='cardHeader'>
-            Analysis of Reddit
-          </div>
-        </ScrollableAnchor>
-
-        <Row>
-          <Col xs={12} sm={12} md={12} lg={6}>
-            <div className="singleChart">
-              <Pie data={dataPie} options={{
-                  legend: {
-                    position: 'bottom'
-                  }
-                }}/>
-            </div>
-          </Col>
-
-          <Col xs={12} sm={12} md={12} lg={6}>
-            <div className="singleChart">
-              <Polar data={dataRadar} options={{
-                  legend: {
-                    position: 'bottom'
-                  },
-                  scale: {
-                    display: false
-                  },
-                  scales: {
-                    xAxes: [
-                      {
-                        gridLines: {
-                          color: "rgba(0, 0, 0, 0)"
-                        }
-                      }
-                    ],
-                    yAxes: [
-                      {
-                        gridLines: {
-                          color: "rgba(0, 0, 0, 0)"
-                        }
-                      }
-                    ]
-                  }
-                }}/>
-            </div>
-          </Col>
-        </Row>
-      </Grid>
-    </div>)
-  };
   }
 }
 

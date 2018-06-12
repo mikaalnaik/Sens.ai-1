@@ -30,9 +30,10 @@ class App extends Component {
   }
 
   fetchPosts = async (query) => {
-    const response = await(await fetch(`/results/${query}`)).json()
-    this.setState({statistics: response[0], pastStatistics: response[1] }) // most recent result is last in array
-    console.log("Past statistics:", this.state.pastStatistics);
+    const response = await (await fetch(`/results/${query}`)).json()
+    this.setState({statistics: response[0], pastStatistics: response[1]}) // most recent result is last in array
+    // console.log('Response1', pastResults);
+    // console.log("Past statistics:", this.state.pastStatistics);
   }
 
   searchSubmission = async (query) => {
@@ -115,7 +116,7 @@ class App extends Component {
       </div>
     );
   } else if (this.state.statistics) {
-    console.log(this.state.fadeOut)
+    // console.log(this.state.fadeOut)
     return (
       <div>
         <NavBar/>

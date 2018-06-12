@@ -53,6 +53,8 @@ app.get("/results/:searchname", async (req, res) => {
     searchResultModule.getSearchIdBySearchName(searchname)
     .then((rows) => {
       if(rows.length === 0) {   //to check if searchname does exist
+        console.log('inside');
+        console.log("");
         res.send([stats])
         //adding searchname if not exists
         searchResultModule.addNewSearchName(searchname)
@@ -106,10 +108,10 @@ app.get("/results/:searchname", async (req, res) => {
         });
 
       } else {
-
+        console.log('Result exists');
         searchid = rows[0].id;
 
-        console.log(helperModule.doSearchResultToBeStored(stats));
+        // console.log(helperModule.doSearchResultToBeStored(stats));
         if(helperModule.doSearchResultToBeStored(stats)) {
           //adding searchresult to database
           searchResultModule.addNewSearchResult(userid, searchid, stats)
@@ -132,7 +134,7 @@ app.get("/results/:searchname", async (req, res) => {
             pastResults.push(row.searchresult);
           }
           result.push(pastResults)
-          console.log(pastResults);
+          // console.log(pastResults);
           console.log(`There are ${result[1].length} past results.`)
           res.send(result);
         })
