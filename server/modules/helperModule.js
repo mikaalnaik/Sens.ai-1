@@ -10,9 +10,9 @@ var doSearchResultToBeStored = (searchresult) => {
 
   let result1 = (isNaN(tw.positive) || isNaN(rd.positive) || isNaN(tw.negative) || isNaN(rd.negative));
 
-  let result2 = (isNaN(twspec.disappointed) || isNaN(twspec.angry) || isNaN(twspec.cautious) || isNaN(twspec.doubtful) || isNaN(twspec.happy));
+  let result2 = (isNaN(twspec.dissapointed) || isNaN(twspec.angry) || isNaN(twspec.cautious) || isNaN(twspec.doubtful) || isNaN(twspec.happy));
 
-  let result3 = (isNaN(rdspec.disappointed) || isNaN(rdspec.angry) || isNaN(rdspec.cautious) || isNaN(rdspec.doubtful) || isNaN(rdspec.happy));
+  let result3 = (isNaN(rdspec.dissapointed) || isNaN(rdspec.angry) || isNaN(rdspec.cautious) || isNaN(rdspec.doubtful) || isNaN(rdspec.happy));
 
 
   // let result3 = (isNaN(rdspec.positive) || isNaN(rdspec.negative));
