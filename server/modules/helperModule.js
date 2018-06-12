@@ -12,7 +12,7 @@ var doSearchResultToBeStored = (searchresult) => {
 
   let result2 = (isNaN(twspec.disappointed) || isNaN(twspec.angry) || isNaN(twspec.cautious) || isNaN(twspec.doubtful) || isNaN(twspec.happy));
 
-  let result3 = (isNaN(rdspec.positive) || isNaN(rdspec.negative));
+  let result3 = (isNaN(rdspec.disappointed) || isNaN(rdspec.angry) || isNaN(rdspec.cautious) || isNaN(rdspec.doubtful) || isNaN(rdspec.happy));
 
 
   return !(result1 || result2 || result3);

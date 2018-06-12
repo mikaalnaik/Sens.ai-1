@@ -19,7 +19,7 @@ exports.seed = function(knex, Promise) {
                           },
                          "reddit":{
                            "overallHowManyWere":{"positive":67,"negative":33},
-	                         "specificHowManyWere":{"positive":45,"negative":55}
+	                         "specificHowManyWere":{"disappointed":5,"angry":10,"cautious":12,"doubtful":0,"happy":73}
                          },
 	                        "createdAt":"Jun 2, 2018"
                       }
@@ -38,7 +38,7 @@ exports.seed = function(knex, Promise) {
                           },
                          "reddit":{
                            "overallHowManyWere":{"positive":79,"negative":21},
-	                         "specificHowManyWere":{"positive":59,"negative":41}
+	                         "specificHowManyWere":{"disappointed":0,"angry":4,"cautious":20,"doubtful":0,"happy":76}
                          },
 	                        "createdAt":"Jun 4, 2018"
                         }
@@ -57,7 +57,7 @@ exports.seed = function(knex, Promise) {
                           },
                          "reddit":{
                            "overallHowManyWere":{"positive":63,"negative":37},
-	                         "specificHowManyWere":{"positive":78,"negative":22}
+	                         "specificHowManyWere":{"disappointed":2,"angry":7,"cautious":32,"doubtful":0,"happy":59}
                          },
 	                        "createdAt":"Jun 5, 2018"
                         }
@@ -76,7 +76,7 @@ exports.seed = function(knex, Promise) {
                           },
                          "reddit":{
                            "overallHowManyWere":{"positive":82,"negative":18},
-	                         "specificHowManyWere":{"positive":84,"negative":16}
+	                         "specificHowManyWere":{"disappointed":6,"angry":7,"cautious":7,"doubtful":3,"happy":77}
                          },
 	                        "createdAt":"Jun 7, 2018"
                         }
@@ -95,7 +95,7 @@ exports.seed = function(knex, Promise) {
                           },
                          "reddit":{
                            "overallHowManyWere":{"positive":33,"negative":67},
-	                         "specificHowManyWere":{"positive":41,"negative":59}
+	                         "specificHowManyWere":{"disappointed":1,"angry":5,"cautious":39,"doubtful":3,"happy":52}
                          },
 	                        "createdAt":"Jun 8, 2018"
                         }

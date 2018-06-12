@@ -112,6 +112,18 @@ cd Sens.ai
 npm install --save
 ```
 
+## Setup .env file
+
+### Get API keys
+
+Register for the following API keys using linked given below.
+
+
+
+### Setting .env configuration
+
+- Rename file Sens.ai/server/.env_copy to Sens.ai/server/.env
+- Add API key values in .env file
 
 ## Database Setup
 
