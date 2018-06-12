@@ -19,8 +19,8 @@ exports.seed = function(knex, Promise) {
                           },
                          "reddit":{
                            "overallHowManyWere":{"positive":67,"negative":33},
-	                         "specificHowManyWere":{"positive":45,"negative":55}
-                         },
+                         "specificHowManyWere":{"disappointed":12,"angry":29,"cautious":54,"doubtful":10,"happy":90}
+                       },
 	                        "createdAt":"Jun 2, 2018"
                       }
         },
@@ -36,10 +36,10 @@ exports.seed = function(knex, Promise) {
                            "overallHowManyWere":{"positive":80,"negative":20},
                            "specificHowManyWere":{"disappointed":0,"angry":10,"cautious":10,"doubtful":0,"happy":80}
                           },
-                         "reddit":{
-                           "overallHowManyWere":{"positive":79,"negative":21},
-	                         "specificHowManyWere":{"positive":59,"negative":41}
-                         },
+                          "reddit":{
+                            "overallHowManyWere":{"positive":67,"negative":33},
+                          "specificHowManyWere":{"disappointed":24,"angry":39,"cautious":54,"doubtful":10,"happy":90}
+                        },
 	                        "createdAt":"Jun 4, 2018"
                         }
         },
@@ -55,10 +55,10 @@ exports.seed = function(knex, Promise) {
                            "overallHowManyWere":{"positive":55,"negative":45},
                            "specificHowManyWere":{"disappointed":0,"angry":0,"cautious":0,"doubtful":0,"happy":100}
                           },
-                         "reddit":{
-                           "overallHowManyWere":{"positive":63,"negative":37},
-	                         "specificHowManyWere":{"positive":78,"negative":22}
-                         },
+                          "reddit":{
+                            "overallHowManyWere":{"positive":67,"negative":33},
+                          "specificHowManyWere":{"disappointed":12,"angry":29,"cautious":54,"doubtful":10,"happy":90}
+                        },
 	                        "createdAt":"Jun 5, 2018"
                         }
         },
@@ -74,10 +74,10 @@ exports.seed = function(knex, Promise) {
                            "overallHowManyWere":{"positive":84,"negative":16},
                            "specificHowManyWere":{"disappointed":0,"angry":0,"cautious":0,"doubtful":16,"happy":84}
                           },
-                         "reddit":{
-                           "overallHowManyWere":{"positive":82,"negative":18},
-	                         "specificHowManyWere":{"positive":84,"negative":16}
-                         },
+                          "reddit":{
+                            "overallHowManyWere":{"positive":67,"negative":33},
+                          "specificHowManyWere":{"disappointed":12,"angry":29,"cautious":54,"doubtful":10,"happy":90}
+                        },
 	                        "createdAt":"Jun 7, 2018"
                         }
         },
@@ -93,10 +93,10 @@ exports.seed = function(knex, Promise) {
                            "overallHowManyWere":{"positive":47,"negative":53},
                            "specificHowManyWere":{"disappointed":7,"angry":1,"cautious":3,"doubtful":43,"happy":46}
                           },
-                         "reddit":{
-                           "overallHowManyWere":{"positive":33,"negative":67},
-	                         "specificHowManyWere":{"positive":41,"negative":59}
-                         },
+                          "reddit":{
+                            "overallHowManyWere":{"positive":67,"negative":33},
+                          "specificHowManyWere":{"disappointed":12,"angry":29,"cautious":54,"doubtful":10,"happy":90}
+                        },
 	                        "createdAt":"Jun 8, 2018"
                         }
         }

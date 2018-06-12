@@ -27,7 +27,8 @@ class Reddit extends Component {
     let redditLinePositive = () => {
       let positiveData = []
       for (var i = 0; i < pastChart.length; i++) {
-        positiveData.push(pastChart[i].reddit.overallHowManyWere.positive)
+          let chart = JSON.parse(pastChart[i])
+        positiveData.push(chart.reddit.overallHowManyWere.positive)
       }
       return positiveData
     }
@@ -35,7 +36,8 @@ class Reddit extends Component {
     let redditLineNegative = () => {
       let negativeData = []
       for (var i = 0; i < pastChart.length; i++) {
-        negativeData.push(pastChart[i].reddit.overallHowManyWere.negative)
+          let chart = JSON.parse(pastChart[i])
+        negativeData.push(chart.reddit.overallHowManyWere.negative)
       }
       return negativeData
     }
@@ -46,35 +48,40 @@ class Reddit extends Component {
     let redditBarDisappointed = () => {
       let dissapointedData = []
       for (var i = 0; i < pastChart.length; i++) {
-        dissapointedData.push(pastChart[i].reddit.specificHowManyWere.dissapointed)
+          let chart = JSON.parse(pastChart[i])
+        dissapointedData.push(chart.reddit.specificHowManyWere.dissapointed)
       }
       return dissapointedData
     }
     let redditBarAngry = () => {
       let data = []
       for (var i = 0; i < pastChart.length; i++) {
-        data.push(pastChart[i].reddit.specificHowManyWere.angry)
+          let chart = JSON.parse(pastChart[i])
+        data.push(chart.reddit.specificHowManyWere.angry)
       }
       return data
     }
     let redditBarCautious = () => {
       let data = []
       for (var i = 0; i < pastChart.length; i++) {
-        data.push(pastChart[i].reddit.specificHowManyWere.cautious)
+          let chart = JSON.parse(pastChart[i])
+        data.push(chart.reddit.specificHowManyWere.cautious)
       }
       return data
     }
     let redditBarDoubtful = () => {
       let data = []
       for (var i = 0; i < pastChart.length; i++) {
-        data.push(pastChart[i].reddit.specificHowManyWere.doubtful)
+          let chart = JSON.parse(pastChart[i])
+        data.push(chart.reddit.specificHowManyWere.doubtful)
       }
       return data
     }
     let redditBarHappy = () => {
       let data = []
       for (var i = 0; i < pastChart.length; i++) {
-        data.push(pastChart[i].reddit.specificHowManyWere.happy)
+          let chart = JSON.parse(pastChart[i])
+        data.push(chart.reddit.specificHowManyWere.happy)
       }
       return data
     }
@@ -258,7 +265,7 @@ class Reddit extends Component {
 };
     };
 
-
+if(pastChart.length > 0){
       return (
         <div className="Card">
 
@@ -332,6 +339,53 @@ class Reddit extends Component {
           </Grid>
         </div>
       );
+    } else {
+      return (
+        <div className="Card">
+
+          <Grid fluid>
+          {/*THIS IS THE BUTTON THAT TRIGGERS THE SCROLL*/}
+            <p className="redditTwitter">
+              <a href="#scrollReddit">
+                <img className="arrow" src={Arrow} height="40" width="80"/>
+              </a>
+            </p>
+          {/*THIS IS THE BUTTON THAT TRIGGERS THE SCROLL*/}
+            <ScrollableAnchor id={'scrollReddit'}>
+              <div className='cardHeader'>
+                Analysis of Reddit
+              </div>
+            </ScrollableAnchor>
+            <Row>
+              <Col xs={12} sm={12} md={12} lg={6}>
+                <div className="singleChart">
+                  <Pie data={dataPie}
+                  options={
+                          {
+                            legend:{
+                          position:'bottom'
+                        }}}/>
+                </div>
+              </Col>
+              <Col xs={12} sm={12} md={12} lg={6}>
+                <div className="singleChart">
+                  <Polar data={dataRadar}   options={
+                          {
+                            legend:{
+                          position:'bottom'
+                        },
+                        scale:{
+                          display: false
+                        },
+                        scales: {xAxes: [{gridLines: {color: "rgba(0, 0, 0, 0)",}}],
+                                yAxes: [{gridLines: {color: "rgba(0, 0, 0, 0)",}}]}}}/>
+                </div>
+              </Col>
+            </Row>
+          </Grid>
+        </div>
+      );
+    }
 	  }
 }
 

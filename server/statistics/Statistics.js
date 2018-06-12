@@ -39,7 +39,7 @@ async function computeData(posts) {
 
     reddit: {
       overallHowManyWere: await getOverallSentiments(redditPosts),
-      specificHowManyWere: await getOverallSentiments(redditPosts)
+      specificHowManyWere: await getSpecificSentiments(redditPosts)
     },
     createdAt : timeCreated
   }
