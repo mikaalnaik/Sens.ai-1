@@ -46,7 +46,7 @@ class OverallSentiment extends Component {
         datasets: [
           {
             data: [chartSet.positive, chartSet.negative],
-            backgroundColor: [gradientStroke, gradientStroke2],
+            backgroundColor: [gradientStroke2, gradientStroke],
             borderWidth: 0,
             hoverBackgroundColor: ['#78909C', '#B0BEC5']
           }
@@ -98,7 +98,8 @@ if (pastChart) {
   let chartLabelGenerator = () => {
     let labels = []
     for(var i = 0; i < pastChart.length; i++){
-      labels.push(pastChart[i].createdAt)
+      let chart = JSON.parse(pastChart[i])
+      labels.push(chart.createdAt)
     }
     return labels
   }
@@ -135,15 +136,13 @@ if (pastChart) {
       ],
       datasets: [
         {
-          label: pastChart.createdAt,
-          backgroundColor: [
-            gradientStroke, gradientStroke2
-          ],
+          label: 'Positive',
+          backgroundColor: [gradientStroke,gradientStroke2],
           borderColor: '#3e3e3e',
           borderWidth: 0,
           hoverBackgroundColor: 'rgba(255,99,132,0.4)',
           hoverBorderColor: 'rgba(255,99,132,1)',
-          data: [65, 59, 0]
+          data: [this.props.chartData.twitter.overallHowManyWere.positive,this.props.chartData.twitter.overallHowManyWere.negative]
         }
       ]
     }
@@ -164,7 +163,7 @@ if (pastChart) {
       labels: chartLabelGenerator(),
       datasets: [
         {
-          label: 'Angry',
+          label: 'Negative',
           borderColor: '',
           pointBackgroundColor: 'white',
           borderWidth: 2,

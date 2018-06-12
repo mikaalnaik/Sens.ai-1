@@ -45,7 +45,7 @@ class Twitter extends Component {
               chartSet.overallHowManyWere.positive, chartSet.overallHowManyWere.negative
             ],
             backgroundColor: [
-              gradientStroke, gradientStroke2
+              gradientStroke2, gradientStroke
             ],
             borderWidth: 0,
             hoverBackgroundColor: ['#78909C', '#B0BEC5']
@@ -98,7 +98,8 @@ if (pastChart) {
   let chartLabelGenerator = () => {
     let labels = []
     for (var i = 0; i < pastChart.length; i++) {
-      labels.push(pastChart[i].createdAt)
+      let chart = JSON.parse(pastChart[i])
+      labels.push(chart.createdAt)
     }
     return labels
   }

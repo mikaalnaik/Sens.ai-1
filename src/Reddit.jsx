@@ -15,7 +15,7 @@ class Reddit extends Component {
     let chartSet = this.props.chartData.reddit
     let chartSpecific = this.props.chartData.reddit.specificHowManyWere
     let pastChart = this.props.pastChartData
-    
+
     const dataPie = (canvas) => {
 
       const ctx = canvas.getContext("2d")
@@ -34,8 +34,8 @@ class Reddit extends Component {
         datasets: [{
           data: [chartSet.overallHowManyWere.positive, chartSet.overallHowManyWere.negative],
           backgroundColor: [
-            gradientStroke,
-            gradientStroke2
+            gradientStroke2,
+            gradientStroke
           ],
           borderWidth: 0,
           hoverBackgroundColor: [
@@ -103,8 +103,10 @@ class Reddit extends Component {
     let chartLabelGenerator = () => {
       let labels = []
       for(var i = 0; i < pastChart.length; i++){
-        labels.push(pastChart[i].createdAt)
+        let chart = JSON.parse(pastChart[i])
+        labels.push(chart.createdAt)
       }
+      console.log(labels);
       return labels
     }
     let redditLinePositive = () => {
