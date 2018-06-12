@@ -1,10 +1,23 @@
 .load {
   size: 45px;
   position:fixed;
-  top: 50%;
-  left: 60%;
+  top: 60%;
+  left: 65%;
   width:50em;
   height:18em;
   margin-top: -9em; /*set to a negative number 1/2 of your height*/
   margin-left: -15em;
+}
+
+.loading-text {
+  position:fixed;
+  top: 50%;
+  left: 32%;
+  margin: 2.5em;
+  font-family: 'Century Gothic';
+  text-align: center;
+  font-size: 1em;
+  font-weight: normal;
+  text-shadow: 3px 10px 30px black;
+
 }

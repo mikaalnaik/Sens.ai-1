@@ -25,7 +25,8 @@ class App extends Component {
       searchSubmit: false,
       shouldShow: true,
       fadeOut: "visible",
-      shouldAutoScrollToResults: true
+      shouldAutoScrollToResults: true,
+      pastStatistics: testData
     }
 
   }

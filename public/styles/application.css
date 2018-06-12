@@ -51,10 +51,6 @@ input[type="text"] {
 
 }
 
-/* input[type="text"]:focus:hover {
-  border-bottom: 1px solid #BBB;
-} */
-
 input[type="text"]:focus {
   width: 700px;
   z-index: 1;
@@ -79,7 +75,7 @@ input[type="submit"] {
   opacity: 0.4;
   cursor: pointer;
   transition: opacity .4s ease;
-  left: 101em;
+  left: 84em;
 }
 
 input[type="submit"]:hover {
@@ -119,10 +115,10 @@ input[type="submit"]:hover {
 
 .jumbo {
   margin: 2.5em;
-  /* margin-top: 5.5em; */
-  font-family: 'Libre Baskerville', serif;
+  font-family: 'Century Gothic';
   text-align: center;
-  font-size: 3em;
+  font-size: 2em;
+  font-weight: normal;
 }
 
 .button1 {
@@ -162,9 +158,3 @@ input[type="submit"]:hover {
 .arrow {
   color: #8e99a7;
 }
-
-/* .landing-page {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s 2s, opacity 2s linear;
-} */

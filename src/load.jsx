@@ -27,6 +27,9 @@ class Loading extends React.Component {
 							size={30}
 						/>
 					</div>
+					<div>
+						<p className="jumbo loading-text"> Intelligently analyzing mass data. This will take a couple seconds.. </p>
+					</div>
 				</FadeIn>
 			</div>
 

@@ -7,7 +7,7 @@ class Jumbotron extends Component {
 
   render() {
     return (
-      <p className="jumbo">Leverage the power of artificial intelligience for your business</p>
+      <p className="jumbo"> leverage the power of AI to uncover critical market research </p>
     );
 	}
 }
