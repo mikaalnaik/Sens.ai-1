@@ -28,65 +28,6 @@ class OverallSentiment extends Component {
     let chartSet = this.props.chartData.all.overallHowManyWere
     let chartSpecific = this.props.chartData.all.specificHowManyWere
     let pastChart = this.props.pastChartData
-    // console.log('pastChart length', pastChart.length);
-    // console.log('Past Chart 1', pastChart[0]);
-    // console.log('Past Chart Full:', pastChart);
-
-    let chartLabelGenerator = () => {
-      let labels = []
-      for(var i = 0; i < pastChart.length; i++){
-        labels.push(pastChart[i].createdAt)
-      }
-      return labels
-    }
-
-    let overallLinePositive = () => {
-      let positiveData = []
-      for (var i = 0; i < pastChart.length; i++) {
-          let chart = JSON.parse(pastChart[i])
-        positiveData.push(chart.all.overallHowManyWere.positive)
-      }
-      return positiveData
-    }
-
-    let overallLineNegative = () => {
-      let negativeData = []
-      for (var i = 0; i < pastChart.length; i++) {
-        let chart = JSON.parse(pastChart[i])
-        console.log(chart);
-        negativeData.push(chart.all.overallHowManyWere.negative)
-      }
-      return negativeData
-    }
-
-    const dataBar = (canvas) => {
-      const ctx = canvas.getContext("2d")
-      var gradientStroke = ctx.createRadialGradient(0, 0, 0, 0, 0, 300);
-      gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
-      gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
-      var gradientStroke2 = ctx.createRadialGradient(0, 0, 0, 0, 0, 600);
-      gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
-      gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
-
-      return {
-        labels: [
-          'Reddit', 'Twitter'
-        ],
-        datasets: [
-          {
-            label: pastChart.createdAt,
-            backgroundColor: [
-              gradientStroke, gradientStroke2
-            ],
-            borderColor: '#3e3e3e',
-            borderWidth: 0,
-            hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-            hoverBorderColor: 'rgba(255,99,132,1)',
-            data: [65, 59, 0]
-          }
-        ]
-      }
-    };
 
     const dataPie = (canvas) => {
 
@@ -112,50 +53,6 @@ class OverallSentiment extends Component {
         ]
       }
     };
-
-    const dataLine = (canvas) => {
-
-
-            const ctx = canvas.getContext("2d")
-            var gradientStroke = ctx.createRadialGradient(0, 0,0,0, 0, 300);
-            gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
-            gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
-            var gradientStroke2 = ctx.createRadialGradient(0, 0,0,0, 0, 450);
-            gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
-            gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
-
-
-      return {
-        labels: chartLabelGenerator(),
-        datasets: [
-          {
-            label: 'Angry',
-            borderColor: '',
-            pointBackgroundColor: 'white',
-            borderWidth: 2,
-            gridlines: {
-              lineWidth: 0
-            },
-            pointBorderColor: 'white',
-            backgroundColor: gradientStroke2,
-            data: overallLineNegative()
-          }, {
-            label: 'Positive',
-            lineWidth: 25,
-            borderColor: '',
-            pointBackgroundColor: 'white',
-            pointBorderColor: 'white',
-            borderWidth: 2,
-            gridlines: {
-              display: false
-            },
-            backgroundColor: gradientStroke,
-            data: overallLinePositive()
-          }
-        ]
-      }
-    };
-
     const dataRadar = (canvas) => {
 
       const ctx = canvas.getContext("2d")
@@ -196,8 +93,103 @@ class OverallSentiment extends Component {
       };
     };
 
-if(pastChart.length > 0){
+if (pastChart) {
 
+  let chartLabelGenerator = () => {
+    let labels = []
+    for(var i = 0; i < pastChart.length; i++){
+      labels.push(pastChart[i].createdAt)
+    }
+    return labels
+  }
+  let overallLinePositive = () => {
+    let positiveData = []
+    for (var i = 0; i < pastChart.length; i++) {
+      let chart = JSON.parse(pastChart[i])
+      positiveData.push(chart.all.overallHowManyWere.positive)
+    }
+    return positiveData
+  }
+  let overallLineNegative = () => {
+    let negativeData = []
+    for (var i = 0; i < pastChart.length; i++) {
+      let chart = JSON.parse(pastChart[i])
+      console.log(chart);
+      negativeData.push(chart.all.overallHowManyWere.negative)
+    }
+    return negativeData
+  }
+
+  const dataBar = (canvas) => {
+    const ctx = canvas.getContext("2d")
+    var gradientStroke = ctx.createRadialGradient(0, 0, 0, 0, 0, 300);
+    gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
+    gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
+    var gradientStroke2 = ctx.createRadialGradient(0, 0, 0, 0, 0, 600);
+    gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
+    gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
+
+    return {
+      labels: [
+        'Reddit', 'Twitter'
+      ],
+      datasets: [
+        {
+          label: pastChart.createdAt,
+          backgroundColor: [
+            gradientStroke, gradientStroke2
+          ],
+          borderColor: '#3e3e3e',
+          borderWidth: 0,
+          hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+          hoverBorderColor: 'rgba(255,99,132,1)',
+          data: [65, 59, 0]
+        }
+      ]
+    }
+  };
+  const dataLine = (canvas) => {
+
+
+    const ctx = canvas.getContext("2d")
+    var gradientStroke = ctx.createRadialGradient(0, 0,0,0, 0, 300);
+    gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
+    gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
+    var gradientStroke2 = ctx.createRadialGradient(0, 0,0,0, 0, 450);
+    gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
+    gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
+
+
+    return {
+      labels: chartLabelGenerator(),
+      datasets: [
+        {
+          label: 'Angry',
+          borderColor: '',
+          pointBackgroundColor: 'white',
+          borderWidth: 2,
+          gridlines: {
+            lineWidth: 0
+          },
+          pointBorderColor: 'white',
+          backgroundColor: gradientStroke2,
+          data: overallLineNegative()
+        }, {
+          label: 'Positive',
+          lineWidth: 25,
+          borderColor: '',
+          pointBackgroundColor: 'white',
+          pointBorderColor: 'white',
+          borderWidth: 2,
+          gridlines: {
+            display: false
+          },
+          backgroundColor: gradientStroke,
+          data: overallLinePositive()
+        }
+      ]
+    }
+  };
 
     return (
 

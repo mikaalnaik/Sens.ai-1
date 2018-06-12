@@ -15,6 +15,90 @@ class Reddit extends Component {
     let chartSet = this.props.chartData.reddit
     let chartSpecific = this.props.chartData.reddit.specificHowManyWere
     let pastChart = this.props.pastChartData
+    
+    const dataPie = (canvas) => {
+
+      const ctx = canvas.getContext("2d")
+      var gradientStroke = ctx.createRadialGradient(0, 0,0,0, 0, 500);
+      gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
+      gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
+      var gradientStroke2 = ctx.createRadialGradient(0, 0,0,0, 0, 450);
+      gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
+      gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
+
+      return {
+        labels: [
+          'Positive Response',
+          'Negative Response'
+        ],
+        datasets: [{
+          data: [chartSet.overallHowManyWere.positive, chartSet.overallHowManyWere.negative],
+          backgroundColor: [
+            gradientStroke,
+            gradientStroke2
+          ],
+          borderWidth: 0,
+          hoverBackgroundColor: [
+          '#78909C',
+          '#B0BEC5'
+          ]
+        }]
+      }
+    };
+    const dataRadar = (canvas) => {
+
+      const ctx = canvas.getContext("2d")
+      let gradientStroke = ctx.createRadialGradient(0, 0,0,0, 0, 600);
+      gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
+      gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
+
+      let gradientStroke2 = ctx.createRadialGradient(0, 0,0,0, 0, 450);
+      gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
+      gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
+
+      let gradientStroke3 = ctx.createRadialGradient(0, 0,0,0, 0, 600);
+      gradientStroke3.addColorStop(0.5, 'rgb(43, 192, 228, 0.25)');
+      gradientStroke3.addColorStop(1, 'rgb(234, 236, 198, 1)');
+
+      let gradientStroke4 = ctx.createRadialGradient(0, 0,0,0, 0, 600);
+      gradientStroke4.addColorStop(0.5, 'rgb(255, 128, 8, 0.25)');
+      gradientStroke4.addColorStop(1, 'rgb(255, 200, 55, 1)');
+
+      let gradientStroke5 = ctx.createRadialGradient(0, 0,0,0, 0, 600);
+      gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
+      gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
+
+
+      return {
+        datasets: [{
+          data: [
+            chartSpecific.dissapointed,
+            chartSpecific.angry,
+            chartSpecific.cautious,
+            chartSpecific.doubtful,
+            chartSpecific.happy
+          ],
+          backgroundColor: [
+            gradientStroke,
+            gradientStroke2,
+            gradientStroke3,
+            gradientStroke4,
+            gradientStroke
+          ],
+          borderWidth: 0,
+          label: 'My dataset' // for legend
+      }],
+      labels: [
+        'Disapointed',
+        'Angry',
+        'Cautious',
+        'Doubtful',
+        'Happy'
+      ]
+    };
+  };
+
+  if (pastChart) {
 
     let chartLabelGenerator = () => {
       let labels = []
@@ -23,32 +107,27 @@ class Reddit extends Component {
       }
       return labels
     }
-
     let redditLinePositive = () => {
       let positiveData = []
       for (var i = 0; i < pastChart.length; i++) {
-          let chart = JSON.parse(pastChart[i])
+        let chart = JSON.parse(pastChart[i])
         positiveData.push(chart.reddit.overallHowManyWere.positive)
       }
       return positiveData
     }
-
     let redditLineNegative = () => {
       let negativeData = []
       for (var i = 0; i < pastChart.length; i++) {
-          let chart = JSON.parse(pastChart[i])
+        let chart = JSON.parse(pastChart[i])
         negativeData.push(chart.reddit.overallHowManyWere.negative)
       }
       return negativeData
     }
 
-
-
-
     let redditBarDisappointed = () => {
       let dissapointedData = []
       for (var i = 0; i < pastChart.length; i++) {
-          let chart = JSON.parse(pastChart[i])
+        let chart = JSON.parse(pastChart[i])
         dissapointedData.push(chart.reddit.specificHowManyWere.dissapointed)
       }
       return dissapointedData
@@ -56,7 +135,7 @@ class Reddit extends Component {
     let redditBarAngry = () => {
       let data = []
       for (var i = 0; i < pastChart.length; i++) {
-          let chart = JSON.parse(pastChart[i])
+        let chart = JSON.parse(pastChart[i])
         data.push(chart.reddit.specificHowManyWere.angry)
       }
       return data
@@ -64,7 +143,7 @@ class Reddit extends Component {
     let redditBarCautious = () => {
       let data = []
       for (var i = 0; i < pastChart.length; i++) {
-          let chart = JSON.parse(pastChart[i])
+        let chart = JSON.parse(pastChart[i])
         data.push(chart.reddit.specificHowManyWere.cautious)
       }
       return data
@@ -72,7 +151,7 @@ class Reddit extends Component {
     let redditBarDoubtful = () => {
       let data = []
       for (var i = 0; i < pastChart.length; i++) {
-          let chart = JSON.parse(pastChart[i])
+        let chart = JSON.parse(pastChart[i])
         data.push(chart.reddit.specificHowManyWere.doubtful)
       }
       return data
@@ -80,7 +159,7 @@ class Reddit extends Component {
     let redditBarHappy = () => {
       let data = []
       for (var i = 0; i < pastChart.length; i++) {
-          let chart = JSON.parse(pastChart[i])
+        let chart = JSON.parse(pastChart[i])
         data.push(chart.reddit.specificHowManyWere.happy)
       }
       return data
@@ -139,37 +218,6 @@ class Reddit extends Component {
         ]
       }
     };
-
-    const dataPie = (canvas) => {
-
-      const ctx = canvas.getContext("2d")
-      var gradientStroke = ctx.createRadialGradient(0, 0,0,0, 0, 500);
-      gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
-      gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
-      var gradientStroke2 = ctx.createRadialGradient(0, 0,0,0, 0, 450);
-      gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
-      gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
-
-      return {
-        labels: [
-          'Positive Response',
-          'Negative Response'
-        ],
-        datasets: [{
-          data: [chartSet.overallHowManyWere.positive, chartSet.overallHowManyWere.negative],
-          backgroundColor: [
-            gradientStroke,
-            gradientStroke2
-          ],
-          borderWidth: 0,
-          hoverBackgroundColor: [
-          '#78909C',
-          '#B0BEC5'
-          ]
-        }]
-      }
-    };
-
     const dataLine = (canvas) =>  {
 
       const ctx = canvas.getContext("2d")
@@ -185,87 +233,33 @@ class Reddit extends Component {
         labels: chartLabelGenerator(),
         datasets: [
           {
-           label: 'Reddit',
-           borderColor: '',
-           pointBackgroundColor: 'white',
-           borderWidth: 2,
-           gridlines: {
-             lineWidth:0
-           },
-           pointBorderColor: 'white',
-           backgroundColor: gradientStroke2,
-           data: redditLinePositive()
+            label: 'Reddit',
+            borderColor: '',
+            pointBackgroundColor: 'white',
+            borderWidth: 2,
+            gridlines: {
+              lineWidth:0
+            },
+            pointBorderColor: 'white',
+            backgroundColor: gradientStroke2,
+            data: redditLinePositive()
           },{
-           label: 'Twitter',
-           lineWidth: 25,
-           borderColor: '',
-           pointBackgroundColor: 'white',
-           pointBorderColor: 'white',
-           borderWidth: 2,
-           gridlines: {
-             display: false
-           },
-           backgroundColor: gradientStroke,
-           data: redditLineNegative()
+            label: 'Twitter',
+            lineWidth: 25,
+            borderColor: '',
+            pointBackgroundColor: 'white',
+            pointBorderColor: 'white',
+            borderWidth: 2,
+            gridlines: {
+              display: false
+            },
+            backgroundColor: gradientStroke,
+            data: redditLineNegative()
           }
         ]
       }
     };
 
-    const dataRadar = (canvas) => {
-
-      const ctx = canvas.getContext("2d")
-      let gradientStroke = ctx.createRadialGradient(0, 0,0,0, 0, 600);
-      gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
-      gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
-
-      let gradientStroke2 = ctx.createRadialGradient(0, 0,0,0, 0, 450);
-      gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
-      gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
-
-      let gradientStroke3 = ctx.createRadialGradient(0, 0,0,0, 0, 600);
-      gradientStroke3.addColorStop(0.5, 'rgb(43, 192, 228, 0.25)');
-      gradientStroke3.addColorStop(1, 'rgb(234, 236, 198, 1)');
-
-      let gradientStroke4 = ctx.createRadialGradient(0, 0,0,0, 0, 600);
-      gradientStroke4.addColorStop(0.5, 'rgb(255, 128, 8, 0.25)');
-      gradientStroke4.addColorStop(1, 'rgb(255, 200, 55, 1)');
-
-      let gradientStroke5 = ctx.createRadialGradient(0, 0,0,0, 0, 600);
-      gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
-      gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
-
-
-      return {
-        datasets: [{
-    data: [
-      chartSpecific.dissapointed,
-      chartSpecific.angry,
-      chartSpecific.cautious,
-      chartSpecific.doubtful,
-      chartSpecific.happy
-    ],
-    backgroundColor: [
-      gradientStroke,
-      gradientStroke2,
-      gradientStroke3,
-      gradientStroke4,
-      gradientStroke
-    ],
-    borderWidth: 0,
-    label: 'My dataset' // for legend
-  }],
-  labels: [
-    'Disapointed',
-    'Angry',
-    'Cautious',
-    'Doubtful',
-    'Happy'
-  ]
-};
-    };
-
-if(pastChart.length > 0){
       return (
         <div className="Card">
 
