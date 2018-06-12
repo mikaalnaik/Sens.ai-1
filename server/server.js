@@ -43,13 +43,12 @@ app.get("/results/:searchname", async (req, res) => {
     console.log("Final results:")
     console.log("")
     console.log(stats)
-    res.send(stats)
+    // res.send(stats)
 
 
     //  =============== ADDING stats (final result), id (searchword if doesn't exist) to database and response to client all results for id (searchword)
     let userid = 1;   //assuming user id 1 as required in database (for future enhancement)
     let searchid = -1;  //assuming initial value for searchid
-<<<<<<< HEAD
 
     searchResultModule.getSearchIdBySearchName(searchname)
     .then((rows) => {
@@ -133,7 +132,8 @@ app.get("/results/:searchname", async (req, res) => {
             pastResults.push(row.searchresult);
           }
           result.push(pastResults)
-          console.log(`There are ${pastResults.length} past results.`)
+          console.log(pastResults);
+          console.log(`There are ${result[1].length} past results.`)
           res.send(result);
         })
         .catch((err) => {

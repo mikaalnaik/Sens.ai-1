@@ -21,10 +21,10 @@ class Twitter extends Component {
   }
 
   render() {
-    let chartSet = this.props.chartData.reddit
-    let chartSpecific = this.props.chartData.reddit.specificHowManyWere
+    let chartSet = this.props.chartData.twitter
+    let chartSpecific = this.props.chartData.twitter.specificHowManyWere
     let pastChart = this.props.pastChartData
-
+console.log('Past Chart Twitter:' ,pastChart);
     let chartLabelGenerator = () => {
       let labels = []
       for (var i = 0; i < pastChart.length; i++) {
@@ -238,7 +238,11 @@ class Twitter extends Component {
         datasets: [
           {
             data: [
-              chartSpecific.dissapointed, chartSpecific.angry, chartSpecific.cautious, chartSpecific.doubtful, chartSpecific.happy
+              chartSpecific.dissapointed,
+              chartSpecific.angry,
+              chartSpecific.cautious,
+              chartSpecific.doubtful,
+              chartSpecific.happy
             ],
             backgroundColor: [
               gradientStroke, gradientStroke2, gradientStroke3, gradientStroke4, gradientStroke5
@@ -250,6 +254,9 @@ class Twitter extends Component {
         labels: ['Disapointed', 'Angry', 'Cautious', 'Doubtful', 'Happy']
       };
     };
+
+if(this.props.pastChartData > 0){
+
 
     return (<div className="Card">
 
@@ -363,7 +370,68 @@ class Twitter extends Component {
           </Col>
         </Row>
       </Grid>
-    </div>);
+    </div>)
+  } else {
+    return (<div className="Card">
+
+      <Grid fluid="fluid">
+
+        {/* THIS IS THE BUTTON THAT TRIGGERS THE SCROLL */}
+        <p className="redditTwitter">
+          <a href="#scrollTwitter">
+            <img className="arrow" src={Arrow} height="40" width="80"/>
+          </a>
+        </p>
+        {/* THIS IS THE BUTTON THAT TRIGGERS THE SCROLL */}
+        <ScrollableAnchor id={'scrollTwitter'}>
+          <div className='cardHeader'>
+            Analysis of Twitter
+          </div>
+        </ScrollableAnchor>
+
+        <Row>
+          <Col xs={12} sm={12} md={12} lg={6}>
+            <div className="singleChart">
+              <Doughnut data={dataPie} options={{
+                  legend: {
+                    position: 'bottom'
+                  }
+                }}/>
+            </div>
+          </Col>
+
+          <Col xs={12} sm={12} md={12} lg={6}>
+            <div className="singleChart">
+              <Polar data={dataRadar} options={{
+                  legend: {
+                    position: 'bottom'
+                  },
+                  scale: {
+                    display: false
+                  },
+                  scales: {
+                    xAxes: [
+                      {
+                        gridLines: {
+                          color: "rgba(0, 0, 0, 0)"
+                        }
+                      }
+                    ],
+                    yAxes: [
+                      {
+                        gridLines: {
+                          color: "rgba(0, 0, 0, 0)"
+                        }
+                      }
+                    ]
+                  }
+                }}/>
+            </div>
+          </Col>
+        </Row>
+      </Grid>
+    </div>)
+  };
   }
 }
 

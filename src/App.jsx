@@ -23,17 +23,16 @@ class App extends Component {
     super(props);
     this.state = {
       searchSubmit: false,
-      pastStatistics: testData,
       shouldShow: true,
       fadeOut: "visible",
       shouldAutoScrollToResults: true
     }
-
   }
 
   fetchPosts = async (query) => {
     const response = await(await fetch(`/results/${query}`)).json()
-    this.setState({statistics: response, pastResults: {} }) // most recent result is last in array
+    this.setState({statistics: response[0], pastStatistics: response[1] }) // most recent result is last in array
+    console.log("Past statistics:", this.state.pastStatistics);
   }
 
   searchSubmission = async (query) => {
@@ -42,7 +41,6 @@ class App extends Component {
       this.setState({searchSubmit: true, currentQuery: query, statistics: false});
       let posts = await this.fetchPosts(query);
     }, 700);
-
   }
 
   resetSearchState = () => {
