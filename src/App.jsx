@@ -23,7 +23,6 @@ class App extends Component {
     super(props);
     this.state = {
       searchSubmit: false,
-      pastStatistics: testData,
       shouldShow: true,
       fadeOut: "visible",
       shouldAutoScrollToResults: true
@@ -33,7 +32,10 @@ class App extends Component {
 
   fetchPosts = async (query) => {
     const response = await(await fetch(`/results/${query}`)).json()
-    this.setState({statistics: response, pastResults: {} }) // most recent result is last in array
+    // const pastResponse = JSON.parse(response[1])
+    console.log('Response[1]', response[1]);
+    this.setState({statistics: response[0], pastStatistics: response[1]}) // most recent result is last in array
+    console.log(this.state);
   }
 
   searchSubmission = async (query) => {
@@ -97,7 +99,7 @@ class App extends Component {
         </div>
 
       )
-    } else if (this.state.statistics.reddit.overallHowManyWere.positive == NaN || this.state.statistics.twitter.overallHowManyWere.positive == NaN) {
+    } else if (this.state.statistics.reddit.overallHowManyWere.positive === NaN || this.state.statistics.twitter.overallHowManyWere.positive === NaN) {
     return (
       <div>
         <NavBar/>

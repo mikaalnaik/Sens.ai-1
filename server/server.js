@@ -43,7 +43,7 @@ app.get("/results/:searchname", async (req, res) => {
     console.log("Final results:")
     console.log("")
     console.log(stats)
-    res.send(stats)
+    // res.send(stats)
 
 
     //  =============== ADDING stats (final result), id (searchword if doesn't exist) to database and response to client all results for id (searchword)
@@ -80,14 +80,17 @@ app.get("/results/:searchname", async (req, res) => {
             //retreiving all results and send as response
             searchResultModule.getSearchResultById(userid, searchid)
             .then((rows) => {
-              //console.log(rows);
+              // console.log(rows);
 
                 //extracting searchresult and store into array and send as response
                 let result = [];
+                // let pastResults = [];
+
                 for(let row of rows) {
                   result.push(row.searchresult);
                 }
                 result.push(stats);
+                // result.push(pastResults);
                 //console.log(result);
                 // res.send(result);
 

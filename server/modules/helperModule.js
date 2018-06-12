@@ -15,6 +15,9 @@ var doSearchResultToBeStored = (searchresult) => {
   let result3 = (isNaN(rdspec.disappointed) || isNaN(rdspec.angry) || isNaN(rdspec.cautious) || isNaN(rdspec.doubtful) || isNaN(rdspec.happy));
 
 
+  // let result3 = (isNaN(rdspec.positive) || isNaN(rdspec.negative));
+
+
   return !(result1 || result2 || result3);
 }
 

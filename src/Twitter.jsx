@@ -21,8 +21,8 @@ class Twitter extends Component {
   }
 
   render() {
-    let chartSet = this.props.chartData.reddit
-    let chartSpecific = this.props.chartData.reddit.specificHowManyWere
+    let chartSet = this.props.chartData.twitter
+    let chartSpecific = this.props.chartData.twitter.specificHowManyWere
     let pastChart = this.props.pastChartData
 
     let chartLabelGenerator = () => {
@@ -36,7 +36,8 @@ class Twitter extends Component {
     let twitterLinePositive = () => {
       let positiveData = []
       for (var i = 0; i < pastChart.length; i++) {
-        positiveData.push(pastChart[i].twitter.overallHowManyWere.positive)
+          let chart = JSON.parse(pastChart[i])
+        positiveData.push(chart.twitter.overallHowManyWere.positive)
       }
       return positiveData
     }
@@ -44,7 +45,8 @@ class Twitter extends Component {
     let twitterLineNegative = () => {
       let negativeData = []
       for (var i = 0; i < pastChart.length; i++) {
-        negativeData.push(pastChart[i].twitter.overallHowManyWere.negative)
+          let chart = JSON.parse(pastChart[i])
+        negativeData.push(chart.twitter.overallHowManyWere.negative)
       }
       return negativeData
     }
@@ -52,35 +54,40 @@ class Twitter extends Component {
     let twitterBarDisappointed = () => {
       let dissapointedData = []
       for (var i = 0; i < pastChart.length; i++) {
-        dissapointedData.push(pastChart[i].twitter.specificHowManyWere.dissapointed)
+          let chart = JSON.parse(pastChart[i])
+        dissapointedData.push(chart.twitter.specificHowManyWere.dissapointed)
       }
       return dissapointedData
     }
     let twitterBarAngry = () => {
       let data = []
       for (var i = 0; i < pastChart.length; i++) {
-        data.push(pastChart[i].twitter.specificHowManyWere.angry)
+          let chart = JSON.parse(pastChart[i])
+        data.push(chart.twitter.specificHowManyWere.angry)
       }
       return data
     }
     let twitterBarCautious = () => {
       let data = []
       for (var i = 0; i < pastChart.length; i++) {
-        data.push(pastChart[i].twitter.specificHowManyWere.cautious)
+          let chart = JSON.parse(pastChart[i])
+        data.push(chart.twitter.specificHowManyWere.cautious)
       }
       return data
     }
     let twitterBarDoubtful = () => {
       let data = []
       for (var i = 0; i < pastChart.length; i++) {
-        data.push(pastChart[i].twitter.specificHowManyWere.doubtful)
+          let chart = JSON.parse(pastChart[i])
+        data.push(chart.twitter.specificHowManyWere.doubtful)
       }
       return data
     }
     let twitterBarHappy = () => {
       let data = []
       for (var i = 0; i < pastChart.length; i++) {
-        data.push(pastChart[i].twitter.specificHowManyWere.happy)
+          let chart = JSON.parse(pastChart[i])
+        data.push(chart.twitter.specificHowManyWere.happy)
       }
       return data
     }
@@ -251,6 +258,121 @@ class Twitter extends Component {
       };
     };
 
+if(pastChart.length > 0){
+  return (<div className="Card">
+
+    <Grid fluid="fluid">
+
+      {/* THIS IS THE BUTTON THAT TRIGGERS THE SCROLL */}
+      <p className="redditTwitter">
+        <a href="#scrollTwitter">
+          <img className="arrow" src={Arrow} height="40" width="80"/>
+        </a>
+      </p>
+      {/* THIS IS THE BUTTON THAT TRIGGERS THE SCROLL */}
+      <ScrollableAnchor id={'scrollTwitter'}>
+        <div className='cardHeader'>
+          Analysis of Twitter
+        </div>
+      </ScrollableAnchor>
+
+      <Row>
+        <Col xs={12} sm={12} md={12} lg={6}>
+          <div className="singleChart">
+            <Doughnut data={dataPie} options={{
+                legend: {
+                  position: 'bottom'
+                }
+              }}/>
+          </div>
+        </Col>
+
+        <Col xs={12} sm={12} md={12} lg={6}>
+          <div className="singleChart">
+            <Line data={dataLine} options={{
+                legend: {
+                  position: 'bottom'
+                },
+                scales: {
+                  xAxes: [
+                    {
+                      gridLines: {
+                        color: "rgba(0, 0, 0, 0)"
+                      }
+                    }
+                  ],
+                  yAxes: [
+                    {
+                      gridLines: {
+                        color: "rgba(0, 0, 0, 0)"
+                      }
+                    }
+                  ]
+                }
+              }}/>
+          </div>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col xs={12} sm={12} md={12} lg={6}>
+          <div className="singleChart">
+            <Bar data={dataBar} options={{
+                legend: {
+                  position: 'bottom'
+                },
+                scales: {
+                  xAxes: [
+                    {
+                      gridLines: {
+                        color: "rgba(0, 0, 0, 0)"
+                      }
+                    }
+                  ],
+                  yAxes: [
+                    {
+                      gridLines: {
+                        color: "rgba(0, 0, 0, 0)"
+                      }
+                    }
+                  ]
+                }
+              }}/>
+          </div>
+        </Col>
+
+        <Col xs={12} sm={12} md={12} lg={6}>
+          <div className="singleChart">
+            <Polar data={dataRadar} options={{
+                legend: {
+                  position: 'bottom'
+                },
+                scale: {
+                  display: false
+                },
+                scales: {
+                  xAxes: [
+                    {
+                      gridLines: {
+                        color: "rgba(0, 0, 0, 0)"
+                      }
+                    }
+                  ],
+                  yAxes: [
+                    {
+                      gridLines: {
+                        color: "rgba(0, 0, 0, 0)"
+                      }
+                    }
+                  ]
+                }
+              }}/>
+          </div>
+        </Col>
+      </Row>
+    </Grid>
+  </div>);
+  } else  {
     return (<div className="Card">
 
       <Grid fluid="fluid">
@@ -278,61 +400,6 @@ class Twitter extends Component {
                 }}/>
             </div>
           </Col>
-
-          <Col xs={12} sm={12} md={12} lg={6}>
-            <div className="singleChart">
-              <Line data={dataLine} options={{
-                  legend: {
-                    position: 'bottom'
-                  },
-                  scales: {
-                    xAxes: [
-                      {
-                        gridLines: {
-                          color: "rgba(0, 0, 0, 0)"
-                        }
-                      }
-                    ],
-                    yAxes: [
-                      {
-                        gridLines: {
-                          color: "rgba(0, 0, 0, 0)"
-                        }
-                      }
-                    ]
-                  }
-                }}/>
-            </div>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col xs={12} sm={12} md={12} lg={6}>
-            <div className="singleChart">
-              <Bar data={dataBar} options={{
-                  legend: {
-                    position: 'bottom'
-                  },
-                  scales: {
-                    xAxes: [
-                      {
-                        gridLines: {
-                          color: "rgba(0, 0, 0, 0)"
-                        }
-                      }
-                    ],
-                    yAxes: [
-                      {
-                        gridLines: {
-                          color: "rgba(0, 0, 0, 0)"
-                        }
-                      }
-                    ]
-                  }
-                }}/>
-            </div>
-          </Col>
-
           <Col xs={12} sm={12} md={12} lg={6}>
             <div className="singleChart">
               <Polar data={dataRadar} options={{
@@ -364,6 +431,7 @@ class Twitter extends Component {
         </Row>
       </Grid>
     </div>);
+  }
   }
 }
 
