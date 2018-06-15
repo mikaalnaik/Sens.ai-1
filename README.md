@@ -1,18 +1,8 @@
 # Sens.ai - Brand Analysis Platform
 
-## Presenting a flip side of the social media web platforms
-
-- Facebook
-- Twitter
-- Reddit
-
-## About Project
-
-This is a final project for the web development bootcamp at Lighthouse Labs, Toronto to showcase the skills learned.
-
 ### Project Description
 
-Sens.ai is a single page web app (SPA) that performs the intent analysis and sentiment analysis for the keyword string entered by the user. Internally it fetches user reviews and comments relevant to the keyword from the back of the social media sites. The intent analyzer identifies whether the review/comment is a complaint, a suggestion or a query. The Sentiment analyzer identifies the tone of the review/comment whether it is positive, negative, or neutral. The final outcome is the analysis report generated with detailed charts describing overall feedback for the collection of posts fetched from social media sites. These results are persisted in the database for future comparision.
+Sens.ai is a powerful marketing research tool that leverages artificial intelligence to uncover valuable data for marketing/advertisement purposes. The app fetches content (posts, tweets etc.) from a couple different social media sites, and runs it through two different AI API's. The first is an Intent Analyzer by Parallel Dots. Simply put, this analyzer acts as a filter. Only the posts that showcase an opinion or some kind of feedback gets passed through the filter. The AI can actually detect the intention behind the text. The next stage is a Sentiment Analyzer that will return to us the sentiment expressed behind a text (in this case only opinionated posts are analyzed). We then take all the analytics and create compute statistics which is finally rendered for inspection. 
 
 ### Target auidence
 
@@ -26,15 +16,6 @@ Traders, Manufacturers, Customers, Service Industry, Individuals
 - Mikaal Naik (https://github.com/mikaalnaik)
 - Cem Hekimoglu (https://github.com/cemhekimoglu)
 - Hemantkumar Panchal (https://github.com/panchalhemant2001)
-
-## Project Planning
-
-### User Stories
-
-- when
-- when
-- When
-
 
 ## Stack Choices
 
@@ -59,7 +40,6 @@ Reference: https://en.wikipedia.org/wiki/Node.js
 ### Database (PostgreSQL)
 
 PostgreSQL, often simply Postgres, is an object-relational database management system (ORDBMS) with an emphasis on extensibility and standards compliance. As a database server, its primary functions are to store data securely and return that data in response to requests from other software applications. It can handle workloads ranging from small single-machine applications to large Internet-facing applications (or for data warehousing) with many concurrent users; on macOS Server, PostgreSQL is the default database;[11][12][13] and it is also available for Microsoft Windows and Linux (supplied in most distributions).
-
 
 Reference: https://en.wikipedia.org/wiki/PostgreSQL
 
