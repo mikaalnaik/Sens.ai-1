@@ -48,26 +48,25 @@ class Reddit extends Component {
     const dataRadar = (canvas) => {
 
       const ctx = canvas.getContext("2d")
-      let gradientStroke = ctx.createRadialGradient(0, 0,0,0, 0, 600);
+      let gradientStroke = ctx.createRadialGradient(0, 0, 0, 0, 0, 600);
       gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
       gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
 
-      let gradientStroke2 = ctx.createRadialGradient(0, 0,0,0, 0, 450);
+      let gradientStroke2 = ctx.createRadialGradient(0, 0, 0, 0, 0, 600);
       gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
       gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
 
-      let gradientStroke3 = ctx.createRadialGradient(0, 0,0,0, 0, 600);
+      let gradientStroke3 = ctx.createRadialGradient(0, 0, 0, 0, 0, 600);
       gradientStroke3.addColorStop(0.5, 'rgb(43, 192, 228, 0.25)');
       gradientStroke3.addColorStop(1, 'rgb(234, 236, 198, 1)');
 
-      let gradientStroke4 = ctx.createRadialGradient(0, 0,0,0, 0, 600);
+      let gradientStroke4 = ctx.createRadialGradient(0, 0, 0, 0, 0, 600);
       gradientStroke4.addColorStop(0.5, 'rgb(255, 128, 8, 0.25)');
       gradientStroke4.addColorStop(1, 'rgb(255, 200, 55, 1)');
 
-      let gradientStroke5 = ctx.createRadialGradient(0, 0,0,0, 0, 600);
-      gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
-      gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
-
+      let gradientStroke5 = ctx.createRadialGradient(0, 0, 0, 0, 0, 300);
+      gradientStroke2.addColorStop(0.5, 'rgb(240, 82, 173, 0.25)');
+      gradientStroke2.addColorStop(1, 'rgb(255, 200, 55, 1)');
 
       return {
         datasets: [{
@@ -79,11 +78,11 @@ class Reddit extends Component {
             chartSpecific.happy
           ],
           backgroundColor: [
-            gradientStroke,
+            gradientStroke5,
             gradientStroke2,
-            gradientStroke3,
+            gradientStroke,
             gradientStroke4,
-            gradientStroke
+            gradientStroke3
           ],
           borderWidth: 0,
           label: 'My dataset' // for legend
@@ -225,11 +224,11 @@ class Reddit extends Component {
       const ctx = canvas.getContext("2d")
       var gradientStroke = ctx.createLinearGradient(0, 0, 0, 250);
       gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
-      gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
+      gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 0.5)');
 
       var gradientStroke2 = ctx.createLinearGradient(0, 0, 0, 450);
       gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
-      gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
+      gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 0.7)');
 
       return {
         labels: chartLabelGenerator(),

@@ -5,8 +5,8 @@ var toneAnalyzer = new ToneAnalyzerV3(
   {
     "version": "2017-09-21",
     "url": "https://gateway.watsonplatform.net/tone-analyzer/api",
-    "username": process.env.IBM_USER,
-    "password": process.env.IBM_PASSWORD
+    "username": process.env.C_IBM_USER,
+    "password": process.env.C_IBM_PASSWORD
   });
 
 

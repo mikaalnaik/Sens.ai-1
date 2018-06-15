@@ -33,10 +33,10 @@ class OverallSentiment extends Component {
 
       const ctx = canvas.getContext("2d")
       var gradientStroke = ctx.createRadialGradient(0, 0, 0, 0, 0, 300);
-      gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
-      gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
+      gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.35)');
+      gradientStroke.addColorStop(1, 'rgb(244, 92, 67, .7)');
       var gradientStroke2 = ctx.createRadialGradient(0, 0, 0, 0, 0, 450);
-      gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
+      gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.35)');
       gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
 
       return {
@@ -56,25 +56,25 @@ class OverallSentiment extends Component {
     const dataRadar = (canvas) => {
 
       const ctx = canvas.getContext("2d")
-      var gradientStroke = ctx.createRadialGradient(0, 0,0,0, 0, 300);
+      let gradientStroke = ctx.createRadialGradient(0, 0, 0, 0, 0, 600);
       gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
       gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
 
-      var gradientStroke2 = ctx.createRadialGradient(0, 0,0,0, 0, 450);
+      let gradientStroke2 = ctx.createRadialGradient(0, 0, 0, 0, 0, 600);
       gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
       gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
 
       let gradientStroke3 = ctx.createRadialGradient(0, 0, 0, 0, 0, 600);
-      gradientStroke3.addColorStop(0.5, 'rgb(138, 239, 91, 0.25)');
-      gradientStroke3.addColorStop(1, 'rgb(35, 98, 137, 1)');
+      gradientStroke3.addColorStop(0.5, 'rgb(43, 192, 228, 0.25)');
+      gradientStroke3.addColorStop(1, 'rgb(234, 236, 198, 1)');
 
       let gradientStroke4 = ctx.createRadialGradient(0, 0, 0, 0, 0, 600);
-      gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
-      gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
+      gradientStroke4.addColorStop(0.5, 'rgb(255, 128, 8, 0.25)');
+      gradientStroke4.addColorStop(1, 'rgb(255, 200, 55, 1)');
 
-      let gradientStroke5 = ctx.createRadialGradient(0, 0, 0, 0, 0, 600);
-      gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
-      gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
+      let gradientStroke5 = ctx.createRadialGradient(0, 0, 0, 0, 0, 300);
+      gradientStroke2.addColorStop(0.5, 'rgb(240, 82, 173, 0.25)');
+      gradientStroke2.addColorStop(1, 'rgb(255, 200, 55, 1)');
 
       return {
         datasets: [
@@ -83,7 +83,7 @@ class OverallSentiment extends Component {
               chartSpecific.dissapointed, chartSpecific.angry, chartSpecific.cautious, chartSpecific.doubtful, chartSpecific.happy
             ],
             backgroundColor: [
-              gradientStroke, gradientStroke2, gradientStroke3, gradientStroke2, gradientStroke
+              gradientStroke5, gradientStroke2, gradientStroke, gradientStroke4, gradientStroke3
             ],
             borderWidth: 0,
             label: 'My dataset' // for legend
@@ -153,10 +153,10 @@ if (pastChart) {
     const ctx = canvas.getContext("2d")
     var gradientStroke = ctx.createRadialGradient(0, 0,0,0, 0, 300);
     gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
-    gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
+    gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 0.5)');
     var gradientStroke2 = ctx.createRadialGradient(0, 0,0,0, 0, 450);
     gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
-    gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
+    gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 0.7)');
 
 
     return {
@@ -171,11 +171,13 @@ if (pastChart) {
             lineWidth: 0
           },
           pointBorderColor: 'white',
-          backgroundColor: gradientStroke2,
+          fillOpacity: .3,
+          backgroundColor: gradientStroke,
           data: overallLineNegative()
         }, {
           label: 'Positive',
           lineWidth: 25,
+          fillOpacity: .3,
           borderColor: '',
           pointBackgroundColor: 'white',
           pointBorderColor: 'white',
@@ -183,7 +185,7 @@ if (pastChart) {
           gridlines: {
             display: false
           },
-          backgroundColor: gradientStroke,
+          backgroundColor: gradientStroke2,
           data: overallLinePositive()
         }
       ]
@@ -262,7 +264,7 @@ if (pastChart) {
                   },
                   title: {
                     display: true,
-                    text: 'Something Else',
+                    text: 'Positive Response',
                     fontColor: '#8e99a7'
                   },
                   scales: {

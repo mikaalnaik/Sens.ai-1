@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #212733;
+  background-color: #2f343e;
   z-index: 10;
   height: 4em;
   left: 0;
@@ -11,15 +11,15 @@
 }
 
 .navbar-brand {
-  color: grey;
+  color: #f9f9f9;
   display: block;
   font-family: 'Roboto', sans-serif;
     float: left;
     font-weight: 700;
-    font-size: 1em;
+    font-size: 2em;
     height: 60px;
     line-height: 60px;
-    padding: .1em 1.8em;
+    padding: .1em 0.8em;
     text-decoration: none;
 }
 

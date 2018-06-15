@@ -42,7 +42,7 @@ input[type="text"] {
   position: absolute;
   top: 0;
   right: 0;
-  left: 7.4em;
+  left: 8em;
   background: none;
   z-index: 3;
   transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
@@ -75,7 +75,7 @@ input[type="submit"] {
   opacity: 0.4;
   cursor: pointer;
   transition: opacity .4s ease;
-  left: 84em;
+  left: 103em;
 }
 
 input[type="submit"]:hover {
@@ -114,10 +114,10 @@ input[type="submit"]:hover {
 }
 
 .jumbo {
-  margin: 2.5em;
-  font-family: 'Century Gothic';
+  margin: 5em 4em 5em 0;
+  font-family: 'Lora', serif;
   text-align: center;
-  font-size: 2em;
+  font-size: 3em;
   font-weight: normal;
 }
 
@@ -154,7 +154,8 @@ input[type="submit"]:hover {
   animation: fadeIn .5s ease-in 1 forwards;
   text-align: center;
   font-size: 2em;
+}
 
 .arrow {
-  color: #8e99a7;
+  margin-bottom: 2em;
 }

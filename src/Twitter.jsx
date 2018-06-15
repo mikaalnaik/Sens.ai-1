@@ -72,9 +72,9 @@ class Twitter extends Component {
       gradientStroke4.addColorStop(0.5, 'rgb(255, 128, 8, 0.25)');
       gradientStroke4.addColorStop(1, 'rgb(255, 200, 55, 1)');
 
-      let gradientStroke5 = ctx.createRadialGradient(0, 0, 0, 0, 0, 600);
+      let gradientStroke5 = ctx.createRadialGradient(0, 0, 0, 0, 0, 300);
       gradientStroke2.addColorStop(0.5, 'rgb(240, 82, 173, 0.25)');
-      gradientStroke2.addColorStop(1, 'rgb(176, 84, 96, 1)');
+      gradientStroke2.addColorStop(1, 'rgb(255, 200, 55, 1)');
 
       return {
         datasets: [
@@ -83,7 +83,7 @@ class Twitter extends Component {
               chartSpecific.dissapointed, chartSpecific.angry, chartSpecific.cautious, chartSpecific.doubtful, chartSpecific.happy
             ],
             backgroundColor: [
-              gradientStroke, gradientStroke2, gradientStroke3, gradientStroke4, gradientStroke5
+              gradientStroke5, gradientStroke2, gradientStroke, gradientStroke4, gradientStroke3
             ],
             borderWidth: 0,
             label: 'My dataset' // for legend
@@ -220,10 +220,10 @@ if (pastChart) {
     const ctx = canvas.getContext("2d")
     var gradientStroke = ctx.createRadialGradient(0, 0, 0, 0, 0, 300);
     gradientStroke.addColorStop(0.5, 'rgb(235, 51, 73, 0.25)');
-    gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 1)');
+    gradientStroke.addColorStop(1, 'rgb(244, 92, 67, 0.5)');
     var gradientStroke2 = ctx.createRadialGradient(0, 0, 0, 0, 0, 450);
     gradientStroke2.addColorStop(0.5, 'rgb(60, 211, 173, 0.25)');
-    gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 1)');
+    gradientStroke2.addColorStop(1, 'rgb(76, 184, 196, 0.7)');
 
     return {
       labels: chartLabelGenerator(),
